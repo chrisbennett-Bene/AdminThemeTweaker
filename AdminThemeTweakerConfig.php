@@ -63,44 +63,42 @@ $wrapper->icon('info-circle');
 
 $wrapper->add($field);
 
-// field show info what
+	// field show info what
 	$field = $this->modules->get('InputfieldMarkup');
 	$field->name = 'use';
 	$field->label = __('How do I use it?');
 	$field->collapsed = Inputfield::collapsedYes;
 	$field->icon('info');
 	$field->value = '
-<h2>Using Admin Theme Tweaker</h2>
-<ol>
-<li>Install it. Styling will change with preset values to get you started</li>
-<li>Set two background colors if you like</li>
-<li>Fine-tune your custom styles</li>
-</ol>
-<p>Text colors, borders, tints, input backgrounds and all manner of things will automatically change.</p>
-<h2>Smart switching colorpicker for easy color changes</h2>
-<h3>Smart swatches and colorpicker for flexible color choice</h3>
-<p><kbd>Right-Click</kbd> on any colorpicker swatch to bring up hex value input instead, so you can easily add exact values or remove values altogether to go back to default values.</p>
-<p>This is important as type="color" inputs require a value and will default to black if none is given. It\'s just the way they work. For example, instead of the desired result of no color, an empty value for a type="color" input results in this: <input type="color" class="colorpicker"></p>
-<p>By using a little javascript we switch to type="color" only when the field has a value and allow it to switch back to type="text" on contextmenu.</p>
-<p>This allows us to enjoy the the best of both worlds: pretty color swatches and a colorpicker if we want them and the ability to input hex codes - including shothand which we will automatically expand for colorpicker - or remove values altogether. Without a smart switch for colorpicker, direct input of hexcodes, shorthand hex codes and the valuable option of "no value" are not possible.</p>
-<p>In addition, switching to hex codes via <kbd>Right-Click</kbd> / contextmenu allows you to simply press <kbd>Enter</kbd> to save and update your changes. We like simple!</p>
-<h3>Fine-tune your styling, if desired.</h3>
-<p>You can click it on and off. You can change a heap of things and get your hands dirty or just change a couple of values.</p>
-<p>If you want to change the margin around inputs, you can and the automatic floating of the inputfields will work better than the default, offering accuracy down to 5% for column widths and including all common "thirds" options.</p>
-<p>You do not need to touch a compiler, or CSS, or look at a LESS file, or scratch your head wondering where to find and how to overwrite the default CSS selectors.</p>
-';
+		<h2>Using Admin Theme Tweaker</h2>
+		<ol>
+		<li>Install it. Styling will change with preset values to get you started</li>
+		<li>Set two background colors if you like</li>
+		<li>Fine-tune your custom styles</li>
+		</ol>
+		<p>Text colors, borders, tints, input backgrounds and all manner of things will automatically change.</p>
+		<h2>Smart switching colorpicker for easy color changes</h2>
+		<h3>Smart swatches and colorpicker for flexible color choice</h3>
+		<p><kbd>Right-Click</kbd> on any colorpicker swatch to bring up hex value input instead, so you can easily add exact values or remove values altogether to go back to default values.</p>
+		<p>This is important as type="color" inputs require a value and will default to black if none is given. It\'s just the way they work. For example, instead of the desired result of no color, an empty value for a type="color" input results in this: <input type="color" class="colorpicker"></p>
+		<p>By using a little javascript we switch to type="color" only when the field has a value and allow it to switch back to type="text" on contextmenu.</p>
+		<p>This allows us to enjoy the the best of both worlds: pretty color swatches and a colorpicker if we want them and the ability to input hex codes - including shothand which we will automatically expand for colorpicker - or remove values altogether. Without a smart switch for colorpicker, direct input of hexcodes, shorthand hex codes and the valuable option of "no value" are not possible.</p>
+		<p>In addition, switching to hex codes via <kbd>Right-Click</kbd> / contextmenu allows you to simply press <kbd>Enter</kbd> to save and update your changes. We like simple!</p>
+		<h3>Fine-tune your styling, if desired.</h3>
+		<p>You can click it on and off. You can change a heap of things and get your hands dirty or just change a couple of values.</p>
+		<p>If you want to change the margin around inputs, you can and the automatic floating of the inputfields will work better than the default, offering accuracy down to 5% for column widths and including all common "thirds" options.</p>
+		<p>You do not need to touch a compiler, or CSS, or look at a LESS file, or scratch your head wondering where to find and how to overwrite the default CSS selectors.</p>
+	';
 	$field->columnWidth = 50;
 
 $wrapper->add($field);
 $inputfields->add($wrapper);
 
-
-
-// field show Theme Tweaker Styling
-    $field = $this->modules->get('InputfieldCheckbox');
-    $field->name = 'showThemeTweaker';
-    $field->label = __('Show Uikit Theme Tweaker styling');
-    $field->columnWidth = 100;
+	// field show Theme Tweaker Styling
+	$field = $this->modules->get('InputfieldCheckbox');
+	$field->name = 'showThemeTweaker';
+	$field->label = __('Show Uikit Theme Tweaker styling');
+	$field->columnWidth = 100;
 
 $inputfields->add($field);
 
@@ -112,31 +110,31 @@ $fieldset->class = 'pickers';
 $fieldset->description = 'Use Hex codes such as #555555 or #555';
 $fieldset->icon('paint-brush');
 		
-// field body background color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'body_bckgnd_color';
-    $field->label = __('Body Background Color');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-		$field->columnWidth = 50;
-		$field->icon('cogs');
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field body background color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'body_bckgnd_color';
+	$field->label = __('Body Background Color');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 50;
+	$field->icon('cogs');
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-// field content background color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'content_bckgnd_color';
-    $field->label = __('Content Background Color');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 50;
-		$field->icon('cogs');
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field content background color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'content_bckgnd_color';
+	$field->label = __('Content Background Color');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 50;
+	$field->icon('cogs');
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
 $inputfields->add($fieldset);
 
