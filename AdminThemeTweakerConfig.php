@@ -2,9 +2,6 @@
 
 class AdminThemeTweakerConfig extends ModuleConfig {
 
- /**
-   * array Default config values
-   */
   public function getDefaults() {
 
 		return array(
@@ -27,13 +24,12 @@ class AdminThemeTweakerConfig extends ModuleConfig {
 			'pagelist_item_showbckgnd' => true,
 			'pagelist_item_showborder' => true,
 			'pagelist_fontsize' => 1.25,
-			'pagelistsub_fontsize' => 1
-			
+			'pagelistsub_fontsize' => 1		
     );
   }
 
 public function getInputfields() {
-	// get inputfields
+// get inputfields
 $inputfields = parent::getInputfields();
 
 // fieldset InfoWrapper
@@ -49,22 +45,20 @@ $wrapper->icon('info-circle');
 		$field->collapsed = Inputfield::collapsedYes;
 		$field->icon('info');
 		$field->value = '
-		<h2>Change your admin theme style quickly</h2>
-		<h3>Smart defaults and auto-generated contrast to get you up and running, with extensive fine-tuning options if required</h3>
-		<p>Admin Theme Tweaker will quickly alter your default Uikit admin styling from the moment it is installed, with a default configuration designed to illustrate features and give you a head start on configuring your custom admin.</p>
-		<p>Everything is geared towards automatically generating sufficient contrast based on backgrounds you choose. Set two colors and you are away.</p>
-		
-		<h3>How is it different from the other awesome themes and stylers that are available?</h3>
-		<p>It is different from the many other quality theme stylers and styles available, because it does not touch your templates or the default Uikit CSS.</p>
-		<p>You can upgrade the entire core as often as you like and Admin Theme Tweaker will keep on doing what it does.</p>
-		<p>It is an addition to -  not a replacment for -  the default styles, using the Cascading part of CSS with a php "engine" drawing variables and outputting the CSS.</p>
-		<p>That said, it does quite a bit more, allowing a degree of flexibility and customisation that is - to be honest - a little over the top.</p> 
-		<p>You can click it on and off. You can change a heap of things and get your hands dirty or just change a couple of values.</p>
-		<p>If you want to change the margin around inputs, you can and the automatic floating of the inputfields will work better than the default, offering accuracy down to 5% for column widths and including all common "thirds" options.</p>
-		<p>You do not need to touch a compiler, or CSS, or look at a LESS file, or scratch your head wondering where to find and how to overwrite the default CSS selectors.</p>
-
-		<p>Understandably this becomes more difficult as the background moves towards the neutral colors midway beteen black and white, so extensive fine-tuning options are provided.</p>		
-		';
+<h2>Change your admin theme style quickly</h2>
+<h3>Smart defaults and auto-generated contrast to get you up and running, with extensive fine-tuning options if required</h3>
+<p>Admin Theme Tweaker will quickly alter your default Uikit admin styling from the moment it is installed, with a default configuration designed to illustrate features and give you a head start on configuring your custom admin.</p>
+<p>Everything is geared towards automatically generating sufficient contrast based on backgrounds you choose. Set two colors and you are away.</p>
+<h3>How is it different from the other awesome themes and stylers that are available?</h3>
+<p>It is different from the many other quality theme stylers and styles available, because it does not touch your templates or the default Uikit CSS.</p>
+<p>You can upgrade the entire core as often as you like and Admin Theme Tweaker will keep on doing what it does.</p>
+<p>It is an addition to -  not a replacment for -  the default styles, using the Cascading part of CSS with a php "engine" drawing variables and outputting the CSS.</p>
+<p>That said, it does quite a bit more, allowing a degree of flexibility and customisation that is - to be honest - a little over the top.</p> 
+<p>You can click it on and off. You can change a heap of things and get your hands dirty or just change a couple of values.</p>
+<p>If you want to change the margin around inputs, you can and the automatic floating of the inputfields will work better than the default, offering accuracy down to 5% for column widths and including all common "thirds" options.</p>
+<p>You do not need to touch a compiler, or CSS, or look at a LESS file, or scratch your head wondering where to find and how to overwrite the default CSS selectors.</p>
+<p>Understandably this becomes more difficult as the background moves towards the neutral colors midway between black and white, so extensive fine-tuning options are provided.</p>		
+';
     $field->columnWidth = 50;
 
 $wrapper->add($field);
@@ -76,26 +70,25 @@ $wrapper->add($field);
 		$field->collapsed = Inputfield::collapsedYes;
 		$field->icon('info');
 		$field->value = '
-		<h2>Using Admin Theme Tweaker</h2>
-		<ol>
-		<li>Install it. Styling will change with preset values to get you started</li>
-		<li>Set two background colors if you like</li>
-		<li>Fine-tune your custom styles</li>
-		</ol>
-		<p>Text colors, borders, tints, input backgrounds and all manner of things will automatically change.</p>
-		<h2>Smart switching colorpicker for easy color changes</h2>
-		<h3>Smart swatches and colorpicker for flexible color choice</h3>
-		<p><kbd>Right-Click</kbd> on any colorpicker swatch to bring up hex value input instead, so you can easily add exact values or remove values altogether to go back to default values.</p>
-		<p>This is important as type="color" inputs require a value and will default to black if none is given. It\'s just the way they work. For example, instead of the desired result of no color, an empty value for a type="color" input results in this: <input type="color" class="colorpicker"></p>
-		<p>By using a little javascript we switch to type="color" only when the field has a value and allow it to switch back to type="text" on contextmenu.</p>
-		<p>This allows us to enjoy the the best of both worlds: pretty color swatches and a colorpicker if we want them and the ability to input hex codes - including shothand which we will automatically expand for colorpicker - or remove values altogether. Without a smart switch for colorpicker, direct input of hexcodes, shorthand hex codes and the valuable option of "no value" are not possible.</p>
-		<p>In addition, switching to hex codes via <kbd>Right-Click</kbd> / contextmenu allows you to simply press <kbd>Enter</kbd> to save and update your changes. We like simple!</p>
-		<h3>Fine-tune your styling, if desired.</h3>
-		<p>You can click it on and off. You can change a heap of things and get your hands dirty or just change a couple of values.</p>
-		<p>If you want to change the margin around inputs, you can and the automatic floating of the inputfields will work better than the default, offering accuracy down to 5% for column widths and including all common "thirds" options.</p>
-		<p>You do not need to touch a compiler, or CSS, or look at a LESS file, or scratch your head wondering where to find and how to overwrite the default CSS selectors.</p>
-	
-		';
+<h2>Using Admin Theme Tweaker</h2>
+<ol>
+<li>Install it. Styling will change with preset values to get you started</li>
+<li>Set two background colors if you like</li>
+<li>Fine-tune your custom styles</li>
+</ol>
+<p>Text colors, borders, tints, input backgrounds and all manner of things will automatically change.</p>
+<h2>Smart switching colorpicker for easy color changes</h2>
+<h3>Smart swatches and colorpicker for flexible color choice</h3>
+<p><kbd>Right-Click</kbd> on any colorpicker swatch to bring up hex value input instead, so you can easily add exact values or remove values altogether to go back to default values.</p>
+<p>This is important as type="color" inputs require a value and will default to black if none is given. It\'s just the way they work. For example, instead of the desired result of no color, an empty value for a type="color" input results in this: <input type="color" class="colorpicker"></p>
+<p>By using a little javascript we switch to type="color" only when the field has a value and allow it to switch back to type="text" on contextmenu.</p>
+<p>This allows us to enjoy the the best of both worlds: pretty color swatches and a colorpicker if we want them and the ability to input hex codes - including shothand which we will automatically expand for colorpicker - or remove values altogether. Without a smart switch for colorpicker, direct input of hexcodes, shorthand hex codes and the valuable option of "no value" are not possible.</p>
+<p>In addition, switching to hex codes via <kbd>Right-Click</kbd> / contextmenu allows you to simply press <kbd>Enter</kbd> to save and update your changes. We like simple!</p>
+<h3>Fine-tune your styling, if desired.</h3>
+<p>You can click it on and off. You can change a heap of things and get your hands dirty or just change a couple of values.</p>
+<p>If you want to change the margin around inputs, you can and the automatic floating of the inputfields will work better than the default, offering accuracy down to 5% for column widths and including all common "thirds" options.</p>
+<p>You do not need to touch a compiler, or CSS, or look at a LESS file, or scratch your head wondering where to find and how to overwrite the default CSS selectors.</p>
+';
     $field->columnWidth = 50;
 
 $wrapper->add($field);
@@ -119,7 +112,7 @@ $fieldset->class = 'pickers';
 $fieldset->description = 'Use Hex codes such as #555555 or #555';
 $fieldset->icon('paint-brush');
 		
-		// field body background color
+// field body background color
     $field = $this->modules->get('InputfieldText');
     $field->name = 'body_bckgnd_color';
     $field->label = __('Body Background Color');
@@ -127,12 +120,12 @@ $fieldset->icon('paint-brush');
 		$field->class = 'colorpicker';
 		$field->maxlength = 7;
 		$field->minlength = 7;
-    $field->columnWidth = 50;
+		$field->columnWidth = 50;
 		$field->icon('cogs');
 		$field->collapsed = Inputfield::collapsedNever;
     $fieldset->add($field);
 		
-		// field content background color
+// field content background color
     $field = $this->modules->get('InputfieldText');
     $field->name = 'content_bckgnd_color';
     $field->label = __('Content Background Color');
@@ -159,14 +152,14 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->columnWidth = 50;
 $fieldset->icon('compress');
 		
-		// field Space-saving Heading
+// field Space-saving Heading
     $field = $this->modules->get('InputfieldCheckbox');
     $field->name = 'spacesave_heading';
     $field->label = __('Space-saving Page Title');
     $field->columnWidth = 100;
     $fieldset->add($field);
 		
-		// field Space-saving Tabs
+// field Space-saving Tabs
     $field = $this->modules->get('InputfieldCheckbox');
     $field->name = 'spacesave_tabs';
     $field->label = __('Space-saving Tabs');
@@ -181,14 +174,14 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->columnWidth = 50;
 $fieldset->icon('clone');
 
-		// field Shadows
+// field Shadows
     $field = $this->modules->get('InputfieldCheckbox');
     $field->name = 'show_shadows';
     $field->label = __('Show subtle Shadows');
     $field->columnWidth = 100;
     $fieldset->add($field);
 		
-		// field Table striping
+// field Table striping
     $field = $this->modules->get('InputfieldCheckbox');
     $field->name = 'show_zebra';
     $field->label = __('Show subtle table striping');
@@ -206,22 +199,22 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->columnWidth = 50;
 $fieldset->icon('circle-o-notch');
 
-		// field General Radius
+// field General Radius
     $field = $this->modules->get('InputfieldFloat');
     $field->name = 'content_radius';
     $field->label = __('Content');
 		$field->size = 2;
-    $field->columnWidth = 33;
+		$field->columnWidth = 33;
 		$field->collapsed = Inputfield::collapsedNever;
     $fieldset->add($field);
-		
-	 	$field = $this->modules->get('InputfieldFloat');
+
+		$field = $this->modules->get('InputfieldFloat');
     $field->name = 'input_radius';
     $field->label = __('Inputs');
 		$field->size = 2;
-    $field->columnWidth = 33;
+		$field->columnWidth = 33;
 		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+		$fieldset->add($field);
 		
 		$field = $this->modules->get('InputfieldFloat');
     $field->name = 'button_radius';
@@ -242,7 +235,7 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->columnWidth = 50;
 $fieldset->icon('expand');
 
-		// field input margin
+// field input margin
     $field = $this->modules->get('InputfieldFloat');
     $field->name = 'input_margin';
     $field->label = __('Inputfield margins');
@@ -251,7 +244,7 @@ $fieldset->icon('expand');
 		$field->collapsed = Inputfield::collapsedNever;
     $fieldset->add($field);
 		
-		// field inputfield padding
+// field inputfield padding
     $field = $this->modules->get('InputfieldFloat');
     $field->name = 'inputfield_padding';
     $field->label = __('Inputfield padding');
@@ -286,7 +279,7 @@ $fieldset->icon('paint-brush');
 		$field->class = 'colorpicker';
 		$field->maxlength = 7;
 		$field->minlength = 7;
-    $field->columnWidth = 70;
+		$field->columnWidth = 70;
 		$field->collapsed = Inputfield::collapsedNever;
     $fieldset->add($field);
 		
