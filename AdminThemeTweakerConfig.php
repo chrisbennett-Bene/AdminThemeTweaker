@@ -4,27 +4,27 @@ class AdminThemeTweakerConfig extends ModuleConfig {
 
   public function getDefaults() {
 
-		return array(
-      'showThemeTweaker' => true,
-      'spacesave_heading' => true,
-      'spacesave_tabs' => true,
-      'body_bckgnd_color' => '#555555',
-      'content_bckgnd_color' => '#333333',
-      'show_shadows' => true,
-      'show_zebra' => true,
-      'content_radius' => .5,
-      'input_radius' => .33,
-      'button_radius' => .5,
-			'button_bckgndcolor'  => '#228B22',
-			'buttonhover_bckgndcolor'  => '#176117',
-			'buttonactive_bckgndcolor'  => '#64ad64', 
-      'masthead_height' => 50,
-			'inputfield_padding' => .75,
-			'input_margin' => .5,
-			'pagelist_item_showbckgnd' => true,
-			'pagelist_item_showborder' => true,
-			'pagelist_fontsize' => 1.25,
-			'pagelistsub_fontsize' => 1		
+return array(
+'showThemeTweaker' => true,
+'spacesave_heading' => true,
+'spacesave_tabs' => true,
+'body_bckgnd_color' => '#555555',
+'content_bckgnd_color' => '#333333',
+'show_shadows' => true,
+'show_zebra' => true,
+'content_radius' => .5,
+'input_radius' => .33,
+'button_radius' => .5,
+'button_bckgndcolor'  => '#228B22',
+'buttonhover_bckgndcolor'  => '#176117',
+'buttonactive_bckgndcolor'  => '#64ad64', 
+'masthead_height' => 50,
+'inputfield_padding' => .75,
+'input_margin' => .5,
+'pagelist_item_showbckgnd' => true,
+'pagelist_item_showborder' => true,
+'pagelist_fontsize' => 1.25,
+'pagelistsub_fontsize' => 1		
     );
   }
 
