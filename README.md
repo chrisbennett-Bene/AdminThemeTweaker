@@ -46,4 +46,5 @@ By using a little javascript we switch to type="color" only when the field has a
 
 This allows us to enjoy the the best of both worlds: color swatches and a colorpicker if we want them and the ability to input hex codes - including shothand which we will automatically expand for colorpicker - or remove values altogether.
 
-Without a smart switch for colorpicker, direct input of hexcodes, shorthand hex codes and the valuable option of "no value" are not possible. In addition, switching to hex codes via <kbd>Right-Click</kbd> allows you to simply press <kbd>Enter</kbd> to save and update your changes.\We like simple!
+Without a smart switch for colorpicker, direct input of hexcodes, shorthand hex codes and the valuable option of "no value" are not possible. In addition, switching to hex codes via <kbd>Right-Click</kbd> allows you to simply press <kbd>Enter</kbd> to save and update your changes.\
+We like simple!
