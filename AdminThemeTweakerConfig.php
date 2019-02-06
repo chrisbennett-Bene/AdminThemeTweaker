@@ -39,12 +39,12 @@ $wrapper->collapsed = Inputfield::collapsedYes;
 $wrapper->icon('info-circle');
 
 // field show info what
-    $field = $this->modules->get('InputfieldMarkup');
-    $field->name = 'whatis';
-    $field->label = __('What is Admin Theme Tweaker?');
-		$field->collapsed = Inputfield::collapsedYes;
-		$field->icon('info');
-		$field->value = '
+	$field = $this->modules->get('InputfieldMarkup');
+	$field->name = 'whatis';
+	$field->label = __('What is Admin Theme Tweaker?');
+	$field->collapsed = Inputfield::collapsedYes;
+	$field->icon('info');
+	$field->value = '
 <h2>Change your admin theme style quickly</h2>
 <h3>Smart defaults and auto-generated contrast to get you up and running, with extensive fine-tuning options if required</h3>
 <p>Admin Theme Tweaker will quickly alter your default Uikit admin styling from the moment it is installed, with a default configuration designed to illustrate features and give you a head start on configuring your custom admin.</p>
@@ -64,12 +64,12 @@ $wrapper->icon('info-circle');
 $wrapper->add($field);
 
 // field show info what
-    $field = $this->modules->get('InputfieldMarkup');
-    $field->name = 'use';
-    $field->label = __('How do I use it?');
-		$field->collapsed = Inputfield::collapsedYes;
-		$field->icon('info');
-		$field->value = '
+	$field = $this->modules->get('InputfieldMarkup');
+	$field->name = 'use';
+	$field->label = __('How do I use it?');
+	$field->collapsed = Inputfield::collapsedYes;
+	$field->icon('info');
+	$field->value = '
 <h2>Using Admin Theme Tweaker</h2>
 <ol>
 <li>Install it. Styling will change with preset values to get you started</li>
@@ -89,7 +89,7 @@ $wrapper->add($field);
 <p>If you want to change the margin around inputs, you can and the automatic floating of the inputfields will work better than the default, offering accuracy down to 5% for column widths and including all common "thirds" options.</p>
 <p>You do not need to touch a compiler, or CSS, or look at a LESS file, or scratch your head wondering where to find and how to overwrite the default CSS selectors.</p>
 ';
-    $field->columnWidth = 50;
+	$field->columnWidth = 50;
 
 $wrapper->add($field);
 $inputfields->add($wrapper);
