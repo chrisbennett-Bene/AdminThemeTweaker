@@ -18,15 +18,12 @@ because it does not touch your templates or the default Uikit CSS.
 
 You can upgrade the entire core as often as you like and Admin Theme Tweaker will keep on doing what it does.
 
-You do not need to touch a compiler, CSS, LESS, or scratch your head wondering where to find
-and how to overwrite the default CSS.
-
-It is an addition to -  not a replacment for -  the default styles, using the Cascading part of CSS.\
+It is an addition to -  not a replacment for -  the default styles, using the Cascading part of CSS. You do not need to touch a compiler, CSS, LESS, or scratch your head wondering where to find and how to overwrite the default CSS.\
 The php "engine" draws the variables from your configuration and outputs the CSS needed to get it done.
 
 That said, it also does quite a bit more, allowing a greater degree of flexibility and customisation.
 
-It\'s all up to you. You can click it on and off.\
+It\'s all up to you. You can click it on and off. You can choose the options you want.\
 You can change a heap of things and get your hands dirty or just change a couple of values, set and forget.
 
 If you want to change the margin around inputs and inputfields, you can and it will still work.\
