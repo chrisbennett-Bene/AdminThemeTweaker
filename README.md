@@ -43,8 +43,10 @@ Apart from the range of customisations built in to Admin Theme Tweaker, there ar
 - **[Smart switching colorpicker/swatches](#smart-switching-swatches-and-colorpicker-for-easy-and-flexible-color-changes)**
 
 ### Enhanced dropdowns for selected items to make use of horizontal space
-To minimise unnecessary vertical scrolling for dropdown menus containing a large number of items such as Fields and Modules, Admin Theme Tweaker responsively expands selected dropdown menus to take better advantage of available horizontal space.\
-Like much of Admin Theme Tweaker, a small tweak to make life a little easier.
+To minimise unnecessary vertical scrolling for dropdown menus containing a large number of items such as Fields and Modules, Admin Theme Tweaker responsively expands selected dropdowns to take advantage of available horizontal space.
+
+Like much of Admin Theme Tweaker, just a small tweak to make life a little easier.
+
 ### Smart switching swatches and colorpicker for easy and flexible color changes
 <kbd>Right-Click</kbd> on any colorpicker swatch to bring up hex value input instead, so you can easily add exact values or remove values altogether to go back to default values.
 
