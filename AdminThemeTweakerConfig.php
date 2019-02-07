@@ -150,19 +150,19 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->columnWidth = 50;
 $fieldset->icon('compress');
 		
-// field Space-saving Heading
-    $field = $this->modules->get('InputfieldCheckbox');
-    $field->name = 'spacesave_heading';
-    $field->label = __('Space-saving Page Title');
-    $field->columnWidth = 100;
-    $fieldset->add($field);
+	// field Space-saving Heading
+	$field = $this->modules->get('InputfieldCheckbox');
+	$field->name = 'spacesave_heading';
+	$field->label = __('Space-saving Page Title');
+	$field->columnWidth = 100;
+	$fieldset->add($field);
 		
-// field Space-saving Tabs
-    $field = $this->modules->get('InputfieldCheckbox');
-    $field->name = 'spacesave_tabs';
-    $field->label = __('Space-saving Tabs');
-    $field->columnWidth = 100;
-    $fieldset->add($field);
+	// field Space-saving Tabs
+	$field = $this->modules->get('InputfieldCheckbox');
+	$field->name = 'spacesave_tabs';
+	$field->label = __('Space-saving Tabs');
+	$field->columnWidth = 100;
+	$fieldset->add($field);
 		
 $wrapper->add($fieldset);
 
@@ -172,19 +172,19 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->columnWidth = 50;
 $fieldset->icon('clone');
 
-// field Shadows
-    $field = $this->modules->get('InputfieldCheckbox');
-    $field->name = 'show_shadows';
-    $field->label = __('Show subtle Shadows');
-    $field->columnWidth = 100;
-    $fieldset->add($field);
+	// field Shadows
+	$field = $this->modules->get('InputfieldCheckbox');
+	$field->name = 'show_shadows';
+	$field->label = __('Show subtle Shadows');
+	$field->columnWidth = 100;
+	$fieldset->add($field);
 		
-// field Table striping
-    $field = $this->modules->get('InputfieldCheckbox');
-    $field->name = 'show_zebra';
-    $field->label = __('Show subtle table striping');
-    $field->columnWidth = 100;
-    $fieldset->add($field);
+	// field Table striping
+	$field = $this->modules->get('InputfieldCheckbox');
+	$field->name = 'show_zebra';
+	$field->label = __('Show subtle table striping');
+	$field->columnWidth = 100;
+	$fieldset->add($field);
 
 $wrapper->add($fieldset);
 
@@ -197,30 +197,30 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->columnWidth = 50;
 $fieldset->icon('circle-o-notch');
 
-// field General Radius
-    $field = $this->modules->get('InputfieldFloat');
-    $field->name = 'content_radius';
-    $field->label = __('Content');
-		$field->size = 2;
-		$field->columnWidth = 33;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field General Radius
+	$field = $this->modules->get('InputfieldFloat');
+	$field->name = 'content_radius';
+	$field->label = __('Content');
+	$field->size = 2;
+	$field->columnWidth = 33;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 
-		$field = $this->modules->get('InputfieldFloat');
-    $field->name = 'input_radius';
-    $field->label = __('Inputs');
-		$field->size = 2;
-		$field->columnWidth = 33;
-		$field->collapsed = Inputfield::collapsedNever;
-		$fieldset->add($field);
+	$field = $this->modules->get('InputfieldFloat');
+	$field->name = 'input_radius';
+	$field->label = __('Inputs');
+	$field->size = 2;
+	$field->columnWidth = 33;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		$field = $this->modules->get('InputfieldFloat');
-    $field->name = 'button_radius';
-    $field->label = __('Buttons');
-		$field->size = 2;
-    $field->columnWidth = 33;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	$field = $this->modules->get('InputfieldFloat');
+	$field->name = 'button_radius';
+	$field->label = __('Buttons');
+	$field->size = 2;
+	$field->columnWidth = 33;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 
 $wrapper->add($fieldset);
 
@@ -233,23 +233,23 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->columnWidth = 50;
 $fieldset->icon('expand');
 
-// field input margin
-    $field = $this->modules->get('InputfieldFloat');
-    $field->name = 'input_margin';
-    $field->label = __('Inputfield margins');
-    $field->columnWidth = 50;
-		$field->size = 2;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field input margin
+	$field = $this->modules->get('InputfieldFloat');
+	$field->name = 'input_margin';
+	$field->label = __('Inputfield margins');
+	$field->columnWidth = 50;
+	$field->size = 2;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-// field inputfield padding
-    $field = $this->modules->get('InputfieldFloat');
-    $field->name = 'inputfield_padding';
-    $field->label = __('Inputfield padding');
-    $field->columnWidth = 50;
-		$field->size = 2;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field inputfield padding
+	$field = $this->modules->get('InputfieldFloat');
+	$field->name = 'inputfield_padding';
+	$field->label = __('Inputfield padding');
+	$field->columnWidth = 50;
+	$field->size = 2;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 
 $wrapper->add($fieldset);
 $inputfields->add($wrapper);
@@ -269,28 +269,28 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->columnWidth = 50;
 $fieldset->icon('paint-brush');
 
-		// field Masthead Bckgnd Color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'masthead_bckgnd_color';
-    $field->label = __('Background');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-		$field->columnWidth = 70;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field Masthead Bckgnd Color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'masthead_bckgnd_color';
+	$field->label = __('Background');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 70;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		// field Masthead Height
-	 	$field = $this->modules->get('InputfieldFloat');
-    $field->name = 'masthead_height';
-    $field->label = __('Height');
-		$field->class = 'auto';
-		$field->maxlength = 2;
-		$field->size = 2;
-    $field->columnWidth = 30;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field Masthead Height
+	$field = $this->modules->get('InputfieldFloat');
+	$field->name = 'masthead_height';
+	$field->label = __('Height');
+	$field->class = 'auto';
+	$field->maxlength = 2;
+	$field->size = 2;
+	$field->columnWidth = 30;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 
 $wrapper->add($fieldset);
 
@@ -302,29 +302,29 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->columnWidth = 50;
 $fieldset->icon('paint-brush');
 
-		// field Footer Bckgnd Color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'footer_bckgnd_color';
-    $field->label = __('Footer Background');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 50;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field Footer Bckgnd Color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'footer_bckgnd_color';
+	$field->label = __('Footer Background');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 100;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		// field Footer txt Color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'footer_color';
-    $field->label = __('Footer Text');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 50;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field Footer txt Color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'footer_color';
+	$field->label = __('Footer Text');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 100;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 
 $wrapper->add($fieldset);
 	
@@ -337,41 +337,41 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->icon('paint-brush');
 $fieldset->columnWidth = 50;
 		
-		// field button background color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'button_bckgndcolor';
-    $field->label = __('Button Background');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 100;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field button background color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'button_bckgndcolor';
+	$field->label = __('Button Background');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 100;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		// field button:hover background color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'buttonhover_bckgndcolor';
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->label = __('Button Hover');
-    $field->columnWidth = 100;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field button:hover background color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'buttonhover_bckgndcolor';
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->label = __('Button Hover');
+	$field->columnWidth = 100;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		// field button:active background color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'buttonactive_bckgndcolor';
-    $field->label = __('Button Active');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 100;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field button:active background color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'buttonactive_bckgndcolor';
+	$field->label = __('Button Active');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 100;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 
 $wrapper->add($fieldset);
 
@@ -384,29 +384,29 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->icon('paint-brush');
 $fieldset->columnWidth = 50;
 		
-		// field link color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'link_color';
-    $field->label = __('Link Color');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 100;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field link color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'link_color';
+	$field->label = __('Link Color');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 100;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		// field link:hover color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'linkhover_color';
-    $field->label = __('Link Hover');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 100;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field link:hover color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'linkhover_color';
+	$field->label = __('Link Hover');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 100;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 	
 $wrapper->add($fieldset);
 
@@ -419,29 +419,29 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->icon('paint-brush');
 $fieldset->columnWidth = 50;
 		
-			// field Current Page color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'currentpage_color';
-    $field->label = __('Current Page Color');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 100;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field Current Page color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'currentpage_color';
+	$field->label = __('Current Page Color');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 100;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		// field Heading color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'heading_color';
-    $field->label = __('Heading Color');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 100;;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field Heading color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'heading_color';
+	$field->label = __('Heading Color');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 100;;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 	
 $wrapper->add($fieldset);
 
@@ -454,29 +454,29 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->icon('paint-brush');
 $fieldset->columnWidth = 50;
 		
-		// field Label color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'label_color';
-    $field->label = __('Label Color');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 100;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field Label color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'label_color';
+	$field->label = __('Label Color');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 100;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		// field Label(collapsed) color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'labelcollapsed_color';
-    $field->label = __('Collapsed Label');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 100;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field Label(collapsed) color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'labelcollapsed_color';
+	$field->label = __('Collapsed Label');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 100;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 	
 $wrapper->add($fieldset);
 
@@ -488,67 +488,66 @@ $fieldset->description = 'Colors for inputs and selects.';
 $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->icon('paint-brush');
 $fieldset->columnWidth = 100;
-		
 			
-		// field input bordercolor
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'input_bordercolor';
-    $field->label = __('Input border color');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 25;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field input bordercolor
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'input_bordercolor';
+	$field->label = __('Input border color');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 25;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		// field input bckgnd color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'input_bckgndcolor';
-    $field->label = __('Input Background color');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 25;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field input bckgnd color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'input_bckgndcolor';
+	$field->label = __('Input Background color');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 25;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		// field input color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'input_color';
-    $field->label = __('Input text color');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 25;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field input color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'input_color';
+	$field->label = __('Input text color');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 25;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		// field input bordercolor:focus
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'input_bordercolor_focus';
-    $field->label = __('Input border focus color ');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 25;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field input bordercolor:focus
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'input_bordercolor_focus';
+	$field->label = __('Input border focus color ');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 25;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		// field input bckgndcolor:focus
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'input_bckgndcolor_focus';
-    $field->label = __('Input Background focus color');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 25;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// field input bckgndcolor:focus
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'input_bckgndcolor_focus';
+	$field->label = __('Input Background focus color');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 25;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 
 $wrapper->add($fieldset);
 $inputfields->add($wrapper);
@@ -559,20 +558,19 @@ $wrapper->label = __('Page List options');
 $wrapper->collapsed = Inputfield::collapsedYes;
 $wrapper->icon('cogs');
 
-
-// field show Page List Item Backgrounds
-    $field = $this->modules->get('InputfieldCheckbox');
-    $field->name = 'pagelist_item_showbckgnd';
-    $field->label = __('Show backgrounds for Page List Items');
-    $field->columnWidth = 50;
+	// field show Page List Item Backgrounds
+	$field = $this->modules->get('InputfieldCheckbox');
+	$field->name = 'pagelist_item_showbckgnd';
+	$field->label = __('Show backgrounds for Page List Items');
+	$field->columnWidth = 50;
 
 $wrapper->add($field);
 
-// field show Page List Item Borders
-    $field = $this->modules->get('InputfieldCheckbox');
-    $field->name = 'pagelist_item_showborder';
-    $field->label = __('Show borders for Page List Items');
-    $field->columnWidth = 50;
+	// field show Page List Item Borders
+	$field = $this->modules->get('InputfieldCheckbox');
+	$field->name = 'pagelist_item_showborder';
+	$field->label = __('Show borders for Page List Items');
+	$field->columnWidth = 50;
 
 $wrapper->add($field);
 
@@ -584,22 +582,22 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->columnWidth = 50;
 $fieldset->icon('cogs');
 
-		// Page List Item font size
-    $field = $this->modules->get('InputfieldFloat');
-    $field->name = 'pagelist_fontsize';
-    $field->label = __('Main pages font size');
-		$field->size = 2;
-    $field->columnWidth = 50;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// Page List Item font size
+	$field = $this->modules->get('InputfieldFloat');
+	$field->name = 'pagelist_fontsize';
+	$field->label = __('Main pages font size');
+	$field->size = 2;
+	$field->columnWidth = 50;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-	 	$field = $this->modules->get('InputfieldFloat');
-    $field->name = 'pagelistsub_fontsize';
-    $field->label = __('Sub pages font size');
-		$field->size = 2;
-    $field->columnWidth = 50;
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	$field = $this->modules->get('InputfieldFloat');
+	$field->name = 'pagelistsub_fontsize';
+	$field->label = __('Sub pages font size');
+	$field->size = 2;
+	$field->columnWidth = 50;
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 
 $wrapper->add($fieldset);
 
@@ -610,46 +608,45 @@ $fieldset->collapsed = Inputfield::collapsedYes;
 $fieldset->columnWidth = 50;
 $fieldset->icon('paint-brush');
 
-		// Page List background color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'pagelist_item_bckgnd';
-    $field->label = __('Page List background');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 100;
-		$field->icon('cogs');
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// Page List background color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'pagelist_item_bckgnd';
+	$field->label = __('Page List background');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 100;
+	$field->icon('cogs');
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		// Page List Hover background color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'pagelist_item_bckgndhover';
-    $field->label = __('Page List Hover');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 100;
-		$field->icon('cogs');
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// Page List Hover background color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'pagelist_item_bckgndhover';
+	$field->label = __('Page List Hover');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 100;
+	$field->icon('cogs');
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-		// Page List Hover background color
-    $field = $this->modules->get('InputfieldText');
-    $field->name = 'pagelist_open_bckgnd';
-    $field->label = __('Open sub menu background');
-		$field->placeholder = '#rrggbb or #rgb';
-		$field->class = 'colorpicker';
-		$field->maxlength = 7;
-		$field->minlength = 7;
-    $field->columnWidth = 100;
-		$field->icon('cogs');
-		$field->collapsed = Inputfield::collapsedNever;
-    $fieldset->add($field);
+	// Page List Hover background color
+	$field = $this->modules->get('InputfieldText');
+	$field->name = 'pagelist_open_bckgnd';
+	$field->label = __('Open sub menu background');
+	$field->placeholder = '#rrggbb or #rgb';
+	$field->class = 'colorpicker';
+	$field->maxlength = 7;
+	$field->minlength = 7;
+	$field->columnWidth = 100;
+	$field->icon('cogs');
+	$field->collapsed = Inputfield::collapsedNever;
+	$fieldset->add($field);
 		
-
 $wrapper->add($fieldset);
 $inputfields->add($wrapper);
 
