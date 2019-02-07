@@ -20,13 +20,20 @@ Naturally, the automatic selection of colors becomes more difficult as your choi
 Text colors, borders, tints, input backgrounds and all manner of things will automatically change.
 
 ## How is it different from the other awesome themes and stylers?
-By design, Admin Theme Tweaker is a little different from the impressive range of quality Admin Theme stylers and Admin Styles available for Processwire. To ensure onging hassle-free updating of the core it does not touch your templates nor the default Uikit CSS.
+By design, Admin Theme Tweaker is a little different from the impressive range of quality Admin Theme stylers and Admin Styles available for Processwire. 
+
+Apart from a wide range of available customisations to complement the automatically generated contrast options, Admin Theme Tweaker is specifically designed to ensure ongoing hassle-free updating of the Processwire core:
+
+1. **Admin Theme Tweaker does not touch your templates**
+2. **Admin Theme Tweaker does not touch the default Uikit CSS**
 
 As a result you can upgrade the entire core as often as you like. Admin Theme Tweaker will keep on doing what it does.
 
 It is an addition to -  not a replacment for -  the default styles, using the Cascading part of CSS. 
 
-You do not need to touch a compiler / CSS / LESS / SCSS or scratch your head wondering where to find and how to overwrite the default CSS. The php "engine" draws the variables from your configuration and outputs the CSS needed to get it done.
+You do not need to touch a Compiler / CSS / LESS / SCSS or spend time scratching your head wondering where to find and how to overwrite the default CSS. We've already invested the time to do that stuff and we're happy to share. 
+
+The php "engine" draws the variables from your configuration and outputs the CSS needed to get it done.
 
 That said, it also does quite a bit more, allowing a greater degree of flexibility and customisation.
 
@@ -34,7 +41,7 @@ It\'s all up to you. You can click it on and off. You can choose the options you
 You can change a heap of things and get your hands dirty or just change a couple of values, set and forget.
 
 If you want to change the margin around inputs and inputfields, you can. Floating will still work correctly.\
-Even with the addition of the ability to set margins between inputs, automatic floating of inputfields provides greater precision than the default, with accuracy down to 5% for column widths and including all common "thirds" options.
+Even with the addition of the ability to set margins between inputs, automatic floating of inputfields provides greater precision than the default UiKit CSS, with accuracy down to 5% for column widths and including all common "thirds" options.
 
 ## Overview of Features
 Apart from the range of customisations built in to Admin Theme Tweaker, there are also a range of UI tweaks that have been incorporated. These are too numerous to outline in detail and I have forgotten some of them along the way because initially I was developing it for myself so didn't really keep track. Some of them include:
