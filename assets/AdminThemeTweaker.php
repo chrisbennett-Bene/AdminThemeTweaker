@@ -146,7 +146,7 @@ div.ProcessPageLister,
 <?php echo $auto_color ? 'color:' . $auto_color . ';' :'color:#000;'; ?>
 <?php echo $content_bckgndcolor ? 'background:' . $content_bckgndcolor . '!important;' :'background:#FFF;'; // !important to over-ride occasional random inline styles ?>
 <?php echo $shadows ? 'box-shadow: 0 0 0.75rem rgba(0,0,0,.1);' :''; ?>
-<?php echo $inputfield_padding ? 'padding:' . ($inputfield_padding - $admin_input_margin) . 'rem ' . $inputfield_padding . 'rem '  . $inputfield_padding . 'rem ' . $inputfield_padding . 'rem;' :''; ?>
+<?php echo $inputfield_padding ? 'padding:' . ($inputfield_padding - $admin_input_margin >0 ? $inputfield_padding - $admin_input_margin : "0") . 'rem ' . $inputfield_padding . 'rem '  . $inputfield_padding . 'rem ' . $inputfield_padding . 'rem;' :''; ?>
 	border: 1px solid <?php echo getContrast($body_bckgndcolor,'tabborder') ; ?>;
 	border-radius:<?php echo $content_radius ? $content_radius . 'rem' :'0'; ?>;
 	margin-bottom:1em;
