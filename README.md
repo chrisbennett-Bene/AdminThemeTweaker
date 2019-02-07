@@ -20,12 +20,13 @@ Naturally, the automatic selection of colors becomes more difficult as your choi
 Text colors, borders, tints, input backgrounds and all manner of things will automatically change.
 
 ## How is it different from other Processwire Admin themes and stylers?
-By design, Admin Theme Tweaker is a little different from the impressive range of quality Admin Theme stylers and Admin Styles available for Processwire. 
+By design, Admin Theme Tweaker is a little different from the impressive range of quality Admin Theme stylers and Admin Styles already available for Processwire. 
 
 Apart from a wide range of available customisations to complement the automatically generated contrast options, Admin Theme Tweaker is specifically designed to ensure ongoing hassle-free updating of the Processwire core:
 
 1. **Admin Theme Tweaker does not touch your templates**
 2. **Admin Theme Tweaker does not touch the default Uikit CSS**
+3. Wide variety of customisation options
 
 As a result you can upgrade the entire core as often as you like. Admin Theme Tweaker will keep on doing what it does.
 
