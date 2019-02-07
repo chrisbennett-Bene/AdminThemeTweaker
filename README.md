@@ -39,8 +39,11 @@ Even with the addition of the ability to set margins between inputs, automatic f
 ## Overview of Features
 Apart from the range of customisations built in to Admin Theme Tweaker, there are also a range of UI tweaks that have been incorporated. These are too numerous to outline in detail and I have forgotten some of them along the way because initially I was developing it for myself so didn't really keep track. Some of them include:
 
-- [Smart switching colorpicker/swatches](#smart-switching-swatches-and-colorpicker-for-easy-and-flexible-color-changes) 
+- **[Enhanced dropdowns for selected items](#smart-switching-swatches-and-colorpicker-for-easy-and-flexible-color-changes)**
+- **[Smart switching colorpicker/swatches](#smart-switching-swatches-and-colorpicker-for-easy-and-flexible-color-changes)**
 
+### Enhanced dropdowns for selected items to make use of horizontal space
+To avoid vertical dropdowns extending down for menus with numerous items such as Fields and Modules, Admin Theme Tweaker responsively expands selected dropdown menus to take advantage of available horizontal space to make it easier to find what you are looking for.
 ### Smart switching swatches and colorpicker for easy and flexible color changes
 <kbd>Right-Click</kbd> on any colorpicker swatch to bring up hex value input instead, so you can easily add exact values or remove values altogether to go back to default values.
 
