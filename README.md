@@ -9,7 +9,7 @@ Everything is geared towards automatically generating sufficient contrast based 
 
 **Set two colors and you are away**.
 
-Naturally, the automatic selection of colors becomes more difficult as your choices move towards the neutral colors midway between black and white, so a wide range of fine-tuning options are provided.
+Naturally, the automatic selection of colors becomes more difficult as your choices move towards the neutral colors midway between black and white, so a range of fine-tuning options are provided.
 
 ## Using Admin Theme Tweaker
 
