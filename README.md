@@ -31,7 +31,7 @@ As a result you can upgrade the entire core as often as you like. Admin Theme Tw
 
 It is an addition to - not a replacment for -  the default styles, using the Cascading part of CSS. 
 
-You do not need to touch a Compiler/CSS/LESS/SCSS or spend time scratching your head wondering where to find and how to overwrite the default CSS. We've already invested the time to do that stuff and we're happy to share. 
+You do not need to touch a Compiler/CSS/LESS/SCSS or spend time scratching your head wondering where to find and how to overwrite the default CSS. We've already invested the head-scratching time needed to do that stuff :relieved:
 
 The php "engine" draws the variables from your configuration and outputs the CSS needed to get it done.
 
