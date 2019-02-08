@@ -44,7 +44,7 @@ If you want to change the margin around inputs and inputfields, you can. Floatin
 Even with the addition of the ability to set margins between inputs, automatic floating of inputfields provides greater precision than the default UiKit CSS, with accuracy down to 5% for column widths and including all common "thirds" options.
 
 ## Overview of Features
-Apart from the range of customisations built in to Admin Theme Tweaker, there are also a range of UI tweaks that have been incorporated. These are too numerous to outline in detail and I have forgotten some of them along the way because initially I was developing it for myself so didn't really keep track. Some of them include:
+Apart from the range of customisation options built in to Admin Theme Tweaker, there are also a range of UI/UX tweaks that have been incorporated. Some of these include:
 
 - **[Enhanced dropdowns for selected items](#enhanced-dropdowns-for-selected-items-to-make-use-of-horizontal-space)**
 - **[Smart switching colorpicker/swatches](#smart-switching-swatches-and-colorpicker-for-easy-and-flexible-color-changes)**
