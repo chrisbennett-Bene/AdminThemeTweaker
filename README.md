@@ -58,12 +58,13 @@ Like much of Admin Theme Tweaker, just a small tweak to make life a little easie
 ### Smart switching swatches and colorpicker for easy and flexible color changes
 <kbd>Right-Click</kbd> on any colorpicker swatch to bring up hex value input instead, so you can easily add exact values or remove values altogether to go back to default values.
 
-This is important as type="color" inputs *require* a 6-digit hex value and automatically default to black (#000000) if none is given. It\'s just the way they work. 
+This is important as type="color" inputs *require* a 6-digit hex value and default to black (#000000) if none is given.\
+It\'s just the way they work. 
 
-To get around this we use a little vanilla javascript to switch to type="color" only when the field has a value and allow it to switch back to type="text" on <kbd>Right-Click</kbd> / contextmenu.
+To get around this we use a little light vanilla javascript to switch to type="color" only when the field has a value and allow it to switch back to type="text" on <kbd>Right-Click</kbd> / contextmenu.
 
-This allows us to enjoy the the best of both worlds: 
-- Handy visual color swatches and a colorpicker
+This smart switching allows us to enjoy the the best of both worlds: 
+- Handy visual color swatches and use of colorpicker if desired and supported by your browser
 - The ability to input hex codes, including shorthand which our javascript will automatically expand for colorpicker 
 - The ability to leave values blank or remove set values
 
