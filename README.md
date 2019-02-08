@@ -2,15 +2,13 @@
 Easily and quickly tweak Processwire's default Uikit Admin Theme
 
 ## Smart defaults and auto-generated contrast to get you up and running, with extensive fine-tuning options if required
-Admin Theme Tweaker alters Processwire's default Uikit admin styling from the moment it is installed.
+Admin Theme Tweaker alters Processwire's default Uikit admin styling from the moment it is installed. The default configuration illustrates some features and gives you a head start on configuring your custom Admin Theme.
 
-The default configuration illustrates some features and gives you a head start on configuring your custom Admin Theme.
-
-Everything is geared towards automatically generating sufficient contrast based on backgrounds you choose.
+Everything is geared towards quickly and automatically generating sufficient contrast based on the background colors you choose.
 
 **Set two colors and you are away**.
 
-Naturally, the automatic selection of colors becomes more difficult as your choices move towards the neutral colors midway between black and white, so a range of fine-tuning options are provided.
+Because the automatic selection of colors becomes more difficult as your background color choices move towards the neutral colors midway between black and white, a range of fine-tuning options are available.
 
 ## Using Admin Theme Tweaker
 
