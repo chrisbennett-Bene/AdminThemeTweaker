@@ -25,13 +25,12 @@ Apart from a wide range of available customisations to complement the automatica
 
 1. **Admin Theme Tweaker does not touch your templates**
 2. **Admin Theme Tweaker does not touch the default Uikit CSS**
-3. Wide variety of customisation options
 
 As a result you can upgrade the entire core as often as you like. Admin Theme Tweaker will keep on doing what it does.
 
 It is an addition to - not a replacment for -  the default styles, using the Cascading part of CSS. 
 
-You do not need to touch a Compiler/CSS/LESS/SCSS or spend time scratching your head wondering where to find and how to overwrite the default CSS. We've already invested the head-scratching time needed to do that stuff :relieved:
+You do not need to touch a Compiler/CSS/LESS/SCSS or spend time scratching your head wondering where to find and how to overwrite the default CSS. We've already invested the head-scratching time needed to do that stuff. :checkered_flag: :relieved: 
 
 The php "engine" draws the variables from your configuration and outputs the CSS needed to get it done.
 
@@ -41,7 +40,7 @@ It\'s all up to you. You can click it on and off. You can choose the options you
 You can change a heap of things and get your hands dirty or just change a couple of values, set and forget.
 
 If you want to change the margin around inputs and inputfields, you can. Floating will still work correctly.\
-Even with the addition of the ability to set margins between inputs, automatic floating of inputfields provides greater precision than the default UiKit CSS, with accuracy down to 5% for column widths and including all common "thirds" options.
+Even with the addition of the ability to set margins between inputs, automatic floating of inputfields improves precision over the default Uikit CSS, with accuracy down to 5% for column widths, including all common "thirds" options.
 
 ## Overview of Features
 Apart from the range of customisation options built in to Admin Theme Tweaker, there are also a range of UI/UX tweaks that have been incorporated. Some of these include:
