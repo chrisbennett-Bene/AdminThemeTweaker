@@ -16,7 +16,7 @@ Because the automatic selection of colors becomes more difficult as your backgro
 2. Set two background colors if you like
 3. Fine-tune your custom styles
 
-Text colors, borders, tints, input backgrounds and all manner of things will automatically change.
+Text colors, borders, tints, input backgrounds and all manner of things will automatically change. In addition to the automatically generated tints and colors, values can also be specified if desired.
 
 ## How is it different from other Processwire Admin themes and stylers?
 By design, Admin Theme Tweaker is a little different from the impressive range of quality Admin Theme stylers and Admin Styles already available for Processwire. 
@@ -29,7 +29,7 @@ Apart from a wide range of available customisations to complement the automatica
 
 As a result you can upgrade the entire core as often as you like. Admin Theme Tweaker will keep on doing what it does.
 
-It is an addition to -  not a replacment for -  the default styles, using the Cascading part of CSS. 
+It is an addition to - not a replacment for -  the default styles, using the Cascading part of CSS. 
 
 You do not need to touch a Compiler/CSS/LESS/SCSS or spend time scratching your head wondering where to find and how to overwrite the default CSS. We've already invested the time to do that stuff and we're happy to share. 
 
