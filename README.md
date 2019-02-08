@@ -19,7 +19,11 @@ Because the automatic selection of colors becomes more difficult as your backgro
 Text colors, borders, tints, input backgrounds and all manner of things will automatically change. In addition to the automatically generated tints and colors, values can also be specified if desired.
 
 ## How is it different from other Processwire Admin themes and stylers?
-By design, Admin Theme Tweaker is a little different from the impressive range of quality Admin Theme stylers and Admin Styles already available for Processwire. 
+By design, Admin Theme Tweaker is a little different from the impressive range of quality Admin Theme stylers and Admin Styles already available for Processwire.
+
+It is an addition to - not a replacment for -  the default styles, using the Cascading part of CSS. 
+
+You do not need to touch a Compiler/CSS/LESS/SCSS or spend time scratching your head wondering where to find and how to overwrite the default CSS. We've already invested the head-scratching time needed to do that stuff. :checkered_flag: :relieved: 
 
 Apart from a wide range of available customisations to complement the automatically generated contrast options, Admin Theme Tweaker is specifically designed to ensure ongoing hassle-free updating of the Processwire core:
 
@@ -28,20 +32,16 @@ Apart from a wide range of available customisations to complement the automatica
 
 As a result you can upgrade the entire core as often as you like. Admin Theme Tweaker will keep on doing what it does.
 
-It is an addition to - not a replacment for -  the default styles, using the Cascading part of CSS. 
-
-You do not need to touch a Compiler/CSS/LESS/SCSS or spend time scratching your head wondering where to find and how to overwrite the default CSS. We've already invested the head-scratching time needed to do that stuff. :checkered_flag: :relieved: 
-
 ## How does it work?
 The php "engine" draws the variables from your configuration and outputs the CSS needed to get it done.
 
-That said, it also does quite a bit more, allowing a greater degree of flexibility and customisation.
+It also does quite a bit more, allowing a greater degree of flexibility and customisation. It's all up to you. 
 
-It\'s all up to you. You can click it on and off. You can choose the options you want.\
+You can click it on and off. You can choose the options you want.\
 You can change a heap of things and get your hands dirty or just change a couple of values, set and forget.
 
-If you want to change the margin around inputs and inputfields, you can. Floating will still work correctly.\
-Even with the addition of the ability to set margins between inputs, automatic floating of inputfields improves precision over the default Uikit CSS, with accuracy down to 5% for column widths, including all common "thirds" options.
+If you want to change the margin around inputs and inputfields, you can and floating will still work correctly.\
+Even with the addition of the ability to set margins between inputs, automatic floating of inputfields provides improved precision over the default Uikit CSS, down to 5% for column widths, including all common "thirds" options.
 
 ## Overview of Features
 Apart from the range of customisation options built in to Admin Theme Tweaker, there are also a range of UI/UX tweaks that have been incorporated. Some of these include:
