@@ -32,6 +32,7 @@ It is an addition to - not a replacment for -  the default styles, using the Cas
 
 You do not need to touch a Compiler/CSS/LESS/SCSS or spend time scratching your head wondering where to find and how to overwrite the default CSS. We've already invested the head-scratching time needed to do that stuff. :checkered_flag: :relieved: 
 
+## How does it work?
 The php "engine" draws the variables from your configuration and outputs the CSS needed to get it done.
 
 That said, it also does quite a bit more, allowing a greater degree of flexibility and customisation.
