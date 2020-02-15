@@ -50,6 +50,9 @@ function getContrast($hexcolor, $type = false){
 		} else if ($type == 'tabborder') {
         $light_bckgnd = '#dedede';
         $dark_bckgnd = '#757575';
+	    } else if ($type == 'errortxt') {
+        $light_bckgnd = '#cd0a0a';
+        $dark_bckgnd = '#FFCC00';
     } else {
         $light_bckgnd = '#354b60';
         $dark_bckgnd = '#F3F3F3';
@@ -152,6 +155,10 @@ div.ProcessPageLister,
 	margin-bottom:1em;
 overflow: hidden;
 }
+.ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text {
+    color: <?php echo getContrast($body_bckgndcolor,'errortxt') ; ?>;
+}
+
 
 .ProcessList #pw-content-body,
 .ProcessLogger #pw-content-body,
