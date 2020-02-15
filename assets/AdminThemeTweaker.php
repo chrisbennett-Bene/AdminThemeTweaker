@@ -1290,7 +1290,7 @@ li:not(.InputfieldSubmit):not(.InputfieldButton).InputfieldFieldset > .Inputfiel
 
 .InputfieldHeader {
 	<?php echo $inputfield_padding ? 'padding:'  . $inputfield_padding . 'rem ' . ($inputfield_padding / 2) . 'rem ' . $inputfield_padding . 'rem ' . $inputfield_padding . 'rem;' :''; ?>}
-.InputfieldContent, .InputfieldWrapper label ~ .Inputfields {<?php echo $inputfield_padding ? 'padding: 0 ' . $inputfield_padding . 'rem ' . $inputfield_padding . 'rem;' :''; ?>}
+.InputfieldContent, .InputfieldWrapper label ~ .Inputfields {background:inherit;<?php echo $inputfield_padding ? 'padding: 0 ' . $inputfield_padding . 'rem ' . $inputfield_padding . 'rem;' :''; ?>}
 /*.InputfieldFieldset>.InputfieldContent>.Inputfields {padding:0}*/
 
 .InputfieldHeaderHidden+.InputfieldContent, .InputfieldHeaderHidden>.InputfieldContent {<?php echo $inputfield_padding ? 'padding-top:' . $inputfield_padding . 'rem;' :''; ?>}
