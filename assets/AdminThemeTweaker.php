@@ -131,8 +131,10 @@ main.pw-container, footer .pw-container, #pw-masthead .pw-container, .Notificati
  {
 <?php echo $auto_color ? 'color:' . $auto_color . ';' :'color:#000;'; ?>
 <?php echo $content_bckgndcolor ? 'background:' . $content_bckgndcolor . '!important;' :'background:#FFF;'; //!important to over-ride occasional random inline styles ?>
+background-clip: border-box;
+border-radius:<?php echo $content_radius ? $content_radius . 'em' :'0'; ?>;
 }
-
+#pw-content-body .MinimalFieldset {overflow: hidden;}
 
 .WireTabs a {<?php echo $shadows ? 'box-shadow: 0 0 0.75rem rgba(0,0,0,.1);' :''; ?>}
 
@@ -176,7 +178,7 @@ overflow: hidden;
   border:0;
 }
 
-body.modal #main.pw-container.uk-margin.uk-margin-large-bottom {overflow:auto;<?php echo $inputfield_padding ? 'margin-bottom:' . $inputfield_padding . 'rem!important;' :''; ?>}
+body.modal #main.pw-container.uk-margin.uk-margin-large-bottom {/*overflow:auto;*/<?php echo $inputfield_padding ? 'margin-bottom:' . $inputfield_padding . 'rem!important;' :''; ?>}
 body.modal form#ImageVariations {margin-top:-1rem;}
 body.modal #ImageVariations .InputfieldButton, body.modal #ImageVariations .InputfieldSubmit {display:none;}
 .ui-dialog.ui-widget.ui-widget-content {
@@ -186,7 +188,12 @@ body.modal #ImageVariations .InputfieldButton, body.modal #ImageVariations .Inpu
     background: rgba(0,0,0,.3);
 }
 .ui-dialog .ui-dialog-titlebar, .ui-dialog .ui-dialog-buttonpane {background:rgba(0,0,0,.5);margin-top:0;}
-.ui-dialog .ui-dialog-titlebar .ui-button {padding:0 .25rem .1rem .25rem;line-height:1;}
+.ui-dialog .ui-dialog-titlebar .ui-button {
+ padding:0 .25rem .1rem .25rem;
+ line-height:1;
+ background:transparent;
+ border-radius: 50%;
+ }
 
 div.PageList.ProcessPageLister.modal {padding:0;}
 
@@ -195,6 +202,10 @@ div.PageList.ProcessPageLister.modal {padding:0;}
 
 .ProcessField:not(.hasUrlSegments) #pw-content-body .Inputfields,
 .ProcessTemplate:not(.hasUrlSegments) #pw-content-body .Inputfields {padding:0 0 1.25rem;}
+.modal .pw-content, .modal #content {
+    max-width: 100%;
+    overflow: visible;
+}
 
 .ProcessField:not(.hasUrlSegments) #pw-content-body .InputfieldHeader,
 .ProcessTemplate:not(.hasUrlSegments) #pw-content-body .InputfieldHeader {padding:.5em .75em;}
@@ -218,9 +229,9 @@ div.PageList.ProcessPageLister.modal {padding:0;}
 
 #pw-content-body :not(.MinimalFieldset) .Inputfield {
    	margin-top: <?php echo $admin_input_margin ?  $admin_input_margin .'em' : '0'; ?>;
-    border-radius:<?php echo $content_radius ? $content_radius . 'em' :'0'; ?>;
+    
     border: solid 1px <?php echo hexRGBA($auto_color, 0.2) ; ?>;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 #pw-content-body .WireTabs+ul>.Inputfield.InputfieldWrapper, #pw-content-body .WireTab > ul .InputfieldWrapper,
@@ -901,9 +912,10 @@ body:not(.pw-narrow-width) #pw-content-body .PageListHasChildren:not(.PageListIt
 }
 
 #main .notes:not(:empty) {
-    color: #404040!important;
-    background: rgba(255, 255, 200, .7);
+    color: <?php echo hexRGBA($auto_color, .8) ; ?>!important; /* -- needs !important to over-ride preset !important --*/
+    background: rgba(255, 255, 200, .2);
     padding: .25em 1rem;
+    border:solid 1px rgba(255, 255, 200, .7);
     width: auto;
 		<?php echo $button_radius ? 'border-radius:' . $button_radius . 'em;' :''; ?>
 }
@@ -971,7 +983,7 @@ label:only-of-type input.uk-checkbox:checked + span:not(.detail),
     transition:all 250ms ease 20ms;
 }
 
-label:only-of-type input.uk-checkbox + span, 
+label:only-of-type input.uk-checkbox + span:not(.pw-no-select), 
 .Inputfield input[type=checkbox].uk-checkbox + span,
 .Inputfield .InputfieldMapMarkerToggle input + strong {
 	color:#c3c3c3;
@@ -983,7 +995,15 @@ label:only-of-type input.uk-checkbox + span,
 	padding: .25em .25em .25em .75em;
   border-radius: 1.5em;
 }
-
+.uk-checkbox {
+	border:solid 1px <?php echo $input_bordercolor; ?> ;
+	<?php echo $input_radius ? 'border-radius: calc(' . $input_radius . ' * .75rem);' :''; ?>
+    }
+.uk-checkbox:hover {
+	border-color: <?php echo $button_bckgndcolor; ?> ;
+    }
+    
+.uk-checkbox:checked {background-color: <?php echo $button_bckgndcolor ? $button_bckgndcolor :'#4ed164'; ?>}
 label:only-of-type input.uk-checkbox:focus {
     box-shadow: 0 0 0 .25em <?php echo $linkhover_color ? $link_color :'#15BFFF'; ?>;
 }
@@ -998,14 +1018,14 @@ color: <?php echo $linkhover_color ? $link_color :'#15BFFF'; ?>;
 background: #FFF;
 }*/
 
-label:only-of-type input.uk-checkbox + span:after,
+/*label:only-of-type input.uk-checkbox + span:after,
 .Inputfield .InputfieldMapMarkerToggle input + strong:after {
     margin-left:.5em;
     width: 1.6em;
     max-height: 1.6em;
     opacity:0;
     content:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250'%3E%3Ccircle cx='125' cy='125' r='125' fill='%23231F20' opacity='.1'/%3E%3Cpath fill='%230B8B44' d='M95.823 139.432l-32.492-32.56-31.872 31.883-.008-.008 63.72 63.732L218.549 79.116 187.494 47.52z'/%3E%3C/svg%3E");
-}
+}*/
 
 label:only-of-type input.uk-checkbox:checked + span:after
 {opacity:1;transition:opacity 250ms ease 150ms;}
@@ -1508,7 +1528,9 @@ color: <?php echo $currentpage_color ? $currentpage_color : getContrast($body_bc
 #pw-content-head-buttons .pw-button-dropdown-wrap {display:flex;}
 #pw-content-head-buttons button:first-child {flex-grow:1;margin-left:10px;}
 
-.ui-button, .ui-button.ui-state-default, .ui-button.ui-state-hover {<?php echo $button_radius ? 'border-radius:' . $button_radius . 'rem;' :''; ?>}
+.ui-button, .ui-button.ui-state-default, .ui-button.ui-state-hover {
+  <?php echo $button_radius ? 'border-radius:' . $button_radius . 'rem;' :''; ?>
+  padding:0 1.25rem;}
 .ui-corner-all, .ui-corner-bottom, .ui-corner-br, .ui-corner-right {<?php echo $button_radius ? 'border-bottom-right-radius:' . $button_radius . 'rem;' :''; ?>}
 .ui-corner-all, .ui-corner-bl, .ui-corner-bottom, .ui-corner-left {<?php echo $button_radius ? 'border-bottom-left-radius:' . $button_radius . 'rem;' :''; ?>}
 .ui-corner-all, .ui-corner-right, .ui-corner-top, .ui-corner-tr {<?php echo $button_radius ? 'border-top-right-radius:' . $button_radius . 'rem;' :''; ?>}
@@ -1520,7 +1542,7 @@ color: <?php echo $currentpage_color ? $currentpage_color : getContrast($body_bc
 .InputfieldImageUpload .InputMask.ui-button:hover, .InputfieldImageUpload .InputMask.ui-button:focus {
 
 <?php echo $button_bckgndcolor_hover ? 'background-color:' . $button_bckgndcolor_hover . ';' :''; ?>
-box-shadow: 0 0 1.25rem <?php echo $button_bckgndcolor ?  '#75e294' :''; ?>;
+box-shadow: 0 0 0 1px rgba(255,255,255,.5), 0 0 .75rem <?php echo $button_bckgndcolor ?  '#75e294' :''; ?>;
 }
 button.ui-button:active {<?php echo $button_bckgndcolor_active ? 'background-color:' . $button_bckgndcolor_active . ';' :''; ?>}
 
@@ -1620,7 +1642,7 @@ body.ProcessPageLister.modal #main.pw-container.uk-margin.uk-margin-large-bottom
 #pw-content-body .Inputfield.pickers input.colorpicker {width:9em;}
 .Inputfield.pickers li.Inputfield, 
 .Inputfield.pickers .Inputfields .InputfieldContent{display:flex;align-items:center;padding-top:0;padding-bottom:0;}
-:not(pre)>code, :not(pre)>kbd, :not(pre)>samp {
+:not(pre)>code:not(:empty), :not(pre)>kbd, :not(pre)>samp {
     font-family: Consolas,monaco,monospace;
     font-size: .875rem;
     color: <?php echo hexRGBA($auto_color, 1) ; ?>;
@@ -1703,5 +1725,179 @@ span.compare {font-size:11px;display:block;float:right;font-weight:bold;}
 }
 #pw-content-body td div.desc{font-weight:normal;font-size:.75rem;color:<?php echo hexRGBA($auto_color, .5) ; ?>;}
 #pw-content-body .jqplot-target {position:relative;color:<?php echo hexRGBA($auto_color, .5) ; ?>;font-family:Roboto,Arial,Helvetica,sans-serif;font-size:.75em;}
+.ui-button[value="Cancel"] {width:100%;}
 
 
+.pw-content #select_images {
+	display: flex;
+  justify-content:space-between;
+  flex-flow:wrap;
+  padding: .5rem .25rem .25rem .5rem;
+  border: solid 1px #777;
+  margin: .25rem .25rem .75rem;
+	border-radius: .5rem;
+    
+}
+.pw-content #select_images li {
+flex-grow:1;
+display:flex;
+align-items: center;
+justify-content: center;
+flex-basis:25vh;
+margin: 0 .25rem .25rem 0;
+border: solid 1px <?php echo hexRGBA($auto_color, .3) ; ?>;
+	border-radius:.25rem;
+  padding:.75rem;
+  background:<?php echo hexRGBA($auto_color, .15) ; ?>; box-shadow: 0 0 .25rem rgba(0, 0, 0, .8);
+
+}
+.pw-content #select_images.thumbs :link img {
+    display: block;
+    float: none;
+ 		border: none;
+		opacity: 1;
+}
+.pw-content #select_images a img {
+   
+    margin: 0;
+    max-width: 100%;
+    height: auto;
+    background: none;
+    box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .5);
+}
+
+.pw-content #select_images a {
+border: solid .125rem <?php echo hexRGBA($auto_color, .7) ; ?>;
+    border-radius: .2rem;
+  transition:all 250ms ease-in;
+  margin:0;
+	}
+  
+body.modal.ProcessPageEditImageSelect #main,
+body.ProcessPageEdit.modal #main {max-width: 100%;}
+#ProcessPageEditImageSelect {padding: 2rem;}
+
+.ProcessPageEdit.modal form#ProcessPageEdit.ProcessPageEditSingleField {
+    margin-top: 0;
+}
+.modal .pw-container {
+    max-width: 100%;
+}
+.modal .pw-notices {
+    position: absolute;
+    right: 2rem;
+    top: .5rem;
+   	border:0;
+}
+.modal .pw-notices .pw-container {padding: 0;}
+.modal .pw-notices .uk-alert.uk-alert-primary {
+		border: solid 1px #FFF;
+    border-radius: .25rem;
+    padding: .25rem;
+    background: #218a22;
+    color: #FFF;
+    margin: 0;
+}
+
+.modal .pw-notice-remove {
+		padding: 0 .5rem 0 0;
+    opacity: .5;
+}
+.modal .pw-notice-remove:hover, .pw-notice-remove:active, .pw-notice-remove:focus {
+    opacity: 1;
+}
+.modal .pw-notice-remove i {
+    color: #FFF;
+    opacity:1;
+}
+.modal .InputfieldImageEditAll .gridImage__resize {
+color: <?php echo hexRGBA($auto_color, .7) ; ?>;
+}
+
+#pw-content-body .gridImage__tooltip {
+padding: .3rem;
+filter: none;
+box-shadow: 0 0 1rem rgba(0,0,0,.9);
+margin-bottom: 1rem;
+border-radius: .5rem;
+}
+
+#pw-content-body .gridImage__tooltip table th,
+#pw-content-body .gridImage__tooltip table td {
+		padding: .2rem;
+    font-size: .75rem;
+    line-height: 1.5;
+		color: #444;
+    background: #fff !important;
+}
+#pw-content-body .gridImage__tooltip table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+#pw-content-body .selectize-input, #pw-content-body .selectize-dropdown {
+    <?php echo $input_radius ? 'border-radius:' . $input_radius . 'rem;' :''; ?>
+    color:<?php echo hexRGBA($auto_color, 0.7) ; ?>;
+    background:<?php echo $body_bckgndcolor ; ?>;
+    border: solid 1px <?php echo hexRGBA($auto_color, 0.05) ; ?>;
+    <?php echo $shadows ? 'box-shadow: 0 .25rem 1rem rgba(0,0,0,.15);' :''; ?>
+}
+#pw-content-body .InputfieldFileTags .selectize-control.multi .selectize-input>div {
+	color:<?php echo hexRGBA($auto_color, 0.8) ; ?>;
+    background:<?php echo hexRGBA($auto_color, 0.2) ; ?>;
+    border-radius: inherit;
+}
+
+#pw-content-body a.remove {
+color:<?php echo hexRGBA($auto_color, 0.5) ; ?>;
+border-color: <?php echo hexRGBA($auto_color, 0.25) ; ?>;
+}
+
+#pw-content-body .selectize-dropdown .active {
+    background-color: #f5fafd;
+    color:<?php echo hexRGBA($auto_color, 1) ; ?>;
+    background:<?php echo hexRGBA($auto_color, 0.09) ; ?>;
+}
+#pw-content-body .selectize-dropdown {
+margin-top: 4px;
+}
+
+#pw-content-body .InputfieldImageEdit__inner{
+background:<?php echo hexRGBA($auto_color, 0.15) ; ?>;
+border-radius:<?php echo $content_radius ? $content_radius . 'em' :'0'; ?>;
+} 
+#pw-content-body .InputfieldImageEdit__arrow {
+border-bottom-color:<?php echo hexRGBA($auto_color, 0.15) ; ?>;
+}
+#pw-content-body .InputfieldImageEdit__imagewrapper {
+border-right-color: <?php echo hexRGBA($auto_color, 0.08) ; ?>;}
+#pw-content-body .selectize-input.dropdown-active::before {background:none;}
+
+#pw-content-body li#wrap_submit_save {
+    position: fixed;
+    bottom: .25rem;
+    right: 0;
+    text-align: right;
+    z-index: 999;
+}
+body[style*="overflow: hidden;"] li#wrap_submit_save {display:none;}
+
+:root {
+	--scrollbar:<?php echo $content_bckgndcolor ? hexRGBA($content_bckgndcolor, .8) : '#777' ; ?>;
+    --track: #777;
+    --thumb: #a6a6a6;
+	--thumb-active: #ccc;
+	--scrollwidth: 1.25rem;
+}
+
+html{scrollbar-width:auto;scrollbar-color:var(--thumb) var(--track);}
+::-webkit-scrollbar{background:var(--scrollbar);width:var(--scrollwidth);}
+::-webkit-scrollbar-track{background:var(--track);border-radius:var(--scrollwidth);}
+::-webkit-scrollbar-thumb{background-color:var(--thumb);border-radius:var(--scrollwidth);border:calc(var(--scrollwidth) / 5) solid var(--track);}
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active{background-color:var(--thumb-active);}
+::-webkit-scrollbar-button:single-button{height:calc(1.1 * var(--scrollwidth));}
+::-webkit-scrollbar-button:vertical{background:no-repeat center;}
+::-webkit-scrollbar-button:single-button:vertical:decrement{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-7.5 -7.5 30 30'%3E%3Cpolygon points='0,15 15,15 7.5,2' style='fill:%23a6a6a6;'/%3E%3C/svg%3E");}
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-7.5 -7.5 30 30'%3E%3Cpolygon points='0,15 15,15 7.5,2' style='fill:%23ccc;'/%3E%3C/svg%3E");}
+::-webkit-scrollbar-button:single-button:vertical:increment{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-8 -8 32 32'%3E%3Cpolygon points='0,0 16,0 8,13.86' style='fill:%23a6a6a6;'/%3E%3C/svg%3E");}
+::-webkit-scrollbar-button:vertical:single-button:increment:hover{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-8 -8 32 32'%3E%3Cpolygon points='0,0 16,0 8,13.86' style='fill:%23ccc;'/%3E%3C/svg%3E");}	
