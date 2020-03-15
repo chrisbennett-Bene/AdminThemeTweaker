@@ -15,7 +15,7 @@ class AdminThemeTweaker extends WireData implements Module {
 	public static function getModuleInfo() {
 		return array(
 			'title' => 'Admin Theme Tweaker for Uikit',
-			'version' => '1.0.4',
+			'version' => '1.0.5',
 			'summary' => 'Easily tweak default Uikit Theme',
 			'author' => 'Chris Bennett',
 			'icon' => 'wrench',
