@@ -42,7 +42,7 @@ $wrapper->icon('info-circle');
 	$field = $this->modules->get('InputfieldMarkup');
 	$field->name = 'whatis';
 	$field->label = __('What is Admin Theme Tweaker?');
-	$field->collapsed = Inputfield::collapsedYes;
+    $field->collapsed = Inputfield::collapsedNever;
 	$field->icon('info');
 	$field->value = '
 <h2>Change your admin theme style quickly</h2>
@@ -67,7 +67,7 @@ $wrapper->add($field);
 	$field = $this->modules->get('InputfieldMarkup');
 	$field->name = 'use';
 	$field->label = __('How do I use it?');
-	$field->collapsed = Inputfield::collapsedYes;
+    $field->collapsed = Inputfield::collapsedNever;
 	$field->icon('info');
 	$field->value = '
 		<h2>Using Admin Theme Tweaker</h2>
@@ -146,7 +146,7 @@ $wrapper->icon('cogs');
 
 $fieldset = $this->modules->get('InputfieldFieldset');
 $fieldset->label = __('Space Saving Page Titles and Tabs');
-$fieldset->collapsed = Inputfield::collapsedYes;
+$fieldset->collapsed = Inputfield::collapsedNever;
 $fieldset->columnWidth = 50;
 $fieldset->icon('compress');
 		
@@ -168,7 +168,7 @@ $wrapper->add($fieldset);
 
 $fieldset = $this->modules->get('InputfieldFieldset');
 $fieldset->label = __('Subtle Shadows and Table striping');
-$fieldset->collapsed = Inputfield::collapsedYes;
+$fieldset->collapsed = Inputfield::collapsedNever;
 $fieldset->columnWidth = 50;
 $fieldset->icon('clone');
 
@@ -193,7 +193,7 @@ $fieldset->label = __('Add some curves');
 $fieldset->class = 'pickers';
 $fieldset->description = 'Set radius in em/rem';
 $fieldset->showIf = 'showThemeTweaker=1';
-$fieldset->collapsed = Inputfield::collapsedYes;
+$fieldset->collapsed = Inputfield::collapsedNever;
 $fieldset->columnWidth = 50;
 $fieldset->icon('circle-o-notch');
 
@@ -229,7 +229,7 @@ $fieldset->label = __('Spacing between inputs');
 $fieldset->description = 'Set spacing between inputs in em/rem';
 $fieldset->class = 'pickers';
 $fieldset->showIf = 'showThemeTweaker=1';
-$fieldset->collapsed = Inputfield::collapsedYes;
+$fieldset->collapsed = Inputfield::collapsedNever;
 $fieldset->columnWidth = 50;
 $fieldset->icon('expand');
 
@@ -265,7 +265,7 @@ $fieldset = $this->modules->get('InputfieldFieldset');
 $fieldset->label = __('Masthead settings');
 $fieldset->class = 'pickers';
 $fieldset->description = 'Over-ride automatic tint of masthead background and set height, if required';
-$fieldset->collapsed = Inputfield::collapsedYes;
+$fieldset->collapsed = Inputfield::collapsedNever;
 $fieldset->columnWidth = 50;
 $fieldset->icon('paint-brush');
 
@@ -298,7 +298,7 @@ $fieldset = $this->modules->get('InputfieldFieldset');
 $fieldset->label = __('Footer colors');
 $fieldset->class = 'pickers';
 $fieldset->description = 'Over-ride automatic tint of footer background, if required';
-$fieldset->collapsed = Inputfield::collapsedYes;
+$fieldset->collapsed = Inputfield::collapsedNever;
 $fieldset->columnWidth = 50;
 $fieldset->icon('paint-brush');
 
@@ -333,7 +333,7 @@ $fieldset = $this->modules->get('InputfieldFieldset');
 $fieldset->label = __('Button Colors');
 $fieldset->description = 'Set background color for Button states';
 $fieldset->class = 'pickers';
-$fieldset->collapsed = Inputfield::collapsedYes;
+$fieldset->collapsed = Inputfield::collapsedNever;
 $fieldset->icon('paint-brush');
 $fieldset->columnWidth = 50;
 		
@@ -380,7 +380,7 @@ $fieldset = $this->modules->get('InputfieldFieldset');
 $fieldset->label = __('Link Colors');
 $fieldset->class = 'pickers';
 $fieldset->description = 'Set text color of Link states in hex code';
-$fieldset->collapsed = Inputfield::collapsedYes;
+$fieldset->collapsed = Inputfield::collapsedNever;
 $fieldset->icon('paint-brush');
 $fieldset->columnWidth = 50;
 		
@@ -415,7 +415,7 @@ $fieldset = $this->modules->get('InputfieldFieldset');
 $fieldset->label = __('Heading Colors');
 $fieldset->class = 'pickers';
 $fieldset->description = 'Set Heading colors in hex code.';
-$fieldset->collapsed = Inputfield::collapsedYes;
+$fieldset->collapsed = Inputfield::collapsedNever;
 $fieldset->icon('paint-brush');
 $fieldset->columnWidth = 50;
 		
@@ -450,7 +450,7 @@ $fieldset = $this->modules->get('InputfieldFieldset');
 $fieldset->label = __('Label Colors');
 $fieldset->class = 'pickers';
 $fieldset->description = 'Set Label color in hex code';
-$fieldset->collapsed = Inputfield::collapsedYes;
+$fieldset->collapsed = Inputfield::collapsedNever;
 $fieldset->icon('paint-brush');
 $fieldset->columnWidth = 50;
 		
@@ -485,7 +485,7 @@ $fieldset = $this->modules->get('InputfieldFieldset');
 $fieldset->label = __('Input styling');
 $fieldset->class = 'pickers';
 $fieldset->description = 'Colors for inputs and selects.';
-$fieldset->collapsed = Inputfield::collapsedYes;
+$fieldset->collapsed = Inputfield::collapsedNever;
 $fieldset->icon('paint-brush');
 $fieldset->columnWidth = 100;
 			
@@ -578,7 +578,7 @@ $fieldset = $this->modules->get('InputfieldFieldset');
 $fieldset->label = __('Main pages font size');
 $fieldset->class = 'pickers';
 $fieldset->description = 'Set font sizes in rem';
-$fieldset->collapsed = Inputfield::collapsedYes;
+$fieldset->collapsed = Inputfield::collapsedNever;
 $fieldset->columnWidth = 50;
 $fieldset->icon('cogs');
 
@@ -604,7 +604,7 @@ $wrapper->add($fieldset);
 $fieldset = $this->modules->get('InputfieldFieldset');
 $fieldset->label = __('Page List colors');
 $fieldset->class = 'pickers';
-$fieldset->collapsed = Inputfield::collapsedYes;
+$fieldset->collapsed = Inputfield::collapsedNever;
 $fieldset->columnWidth = 50;
 $fieldset->icon('paint-brush');
 

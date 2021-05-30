@@ -1,4 +1,4 @@
-<?php namespace ProcessWire;
+<?php namespace ProcessWire; 
 
 /**
  * Admin Theme Tweaker
@@ -9,25 +9,29 @@
  * http://www.processwire.com
  * http://www.ryancramer.com
  */
- 
+
 class AdminThemeTweaker extends WireData implements Module {
+	
+    const MODULE_NAME       = 'AdminThemeTweaker';
+	const MODULE_DIR        = '../../' . self::MODULE_NAME;
+    const VERSION           = '1.0.3';
+    const SUMMARY           = 'Easily tweak default Uikit Theme';
+    const AUTHOR            = 'bene - Chris Bennett';
+    const ICON              = 'wrench';
 
 	public static function getModuleInfo() {
 		return array(
-			'title' => 'Admin Theme Tweaker for Uikit',
-			'version' => '1.0.51',
-			'summary' => 'Easily tweak default Uikit Theme',
-			'author' => 'Chris Bennett',
-			'icon' => 'wrench',
-			'autoload' => 'template=admin',
-			'requires' => 'ProcessWire>=3.0.16, AdminThemeUikit'
+			'title'       => self::MODULE_NAME,
+			'summary'     => self::SUMMARY,
+			'version'     => self::VERSION,			
+            'author'      => self::AUTHOR,
+			'autoload'    => 'template=admin',
+			'icon'        => self::ICON,
+			'requires'    => 'ProcessWire>=3.0.16, AdminThemeUikit',
 		);
 	}
-	
-	const MODULE_NAME = 'AdminThemeTweaker';
-	const MODULE_DIR = '../../' . self::MODULE_NAME;
 
-	public function init() {		
+	public function init() {
 		$this->config->styles->add('/' . self::MODULE_NAME . '/' . self::MODULE_NAME . '.php');
 		$this->config->scripts->add('/' . self::MODULE_NAME . '/colorpickerswitch.js');	
 	}
@@ -68,8 +72,5 @@ class AdminThemeTweaker extends WireData implements Module {
 				}
 		 }
 		rrmdir(self::MODULE_DIR);
-  }
-	
+  }	
 }
-
-
