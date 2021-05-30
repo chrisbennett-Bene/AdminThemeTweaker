@@ -214,13 +214,6 @@ div.PageList.ProcessPageLister.modal {padding:0;}
 #pw-content-body .ProcessPageLister {margin-top: var(--admin-input-margin);}
 #pw-content-body .ProcessPageLister form.InputfieldWrapper {border:0;overflow: visible;}
 
-a.InputfieldButtonLink {display:block;float:left;}
-
-#pw-content-body #export_button, 
-#pw-content-body #import_button {
-    float: right;
-  }
-#pw-content-body #import_button {margin-right:0;}
 
 #ProcessPageEdit #PageEditTabs, .WireTabs {z-index:99;margin-bottom: -1px;}
 
@@ -1426,24 +1419,54 @@ header#pw-content-head {overflow:visible;}
 #pw-content-head-buttons .pw-button-dropdown-wrap {display:flex;}
 #pw-content-head-buttons button:first-child {flex-grow:1;margin-left:10px;}
 
-#pw-content-body button {
-  border-radius: var(--admin-button-radius);
-  padding:0 1.25rem;
-  background-color:var(--button-bckgnd-color);
-  }
-.ui-corner-all,.ui-corner-bottom,.ui-corner-br,.ui-corner-right{border-bottom-right-radius: var(--admin-button-radius);}
-.ui-corner-all,.ui-corner-bl,.ui-corner-bottom,.ui-corner-left{border-bottom-left-radius: var(--admin-button-radius);}
-.ui-corner-all, .ui-corner-right, .ui-corner-top, .ui-corner-tr {border-top-right-radius: var(--admin-button-radius);}
-.ui-corner-all, .ui-corner-left, .ui-corner-tl, .ui-corner-top {border-top-left-radius: var(--admin-button-radius);}
+.InputfieldSubmit .InputfieldContent .ui-button, .InputfieldButton .InputfieldContent .ui-button {
+    display: inline-flex;
+    align-items: center;
+}
 
-#pw-content-body button:hover,#pw-content-body button:focus,
+.ui-button, .ui-button.ui-state-default, .ui-button.ui-state-hover {  
+    /*display: inline;*/
+	border-radius: var(--admin-button-radius);
+    background-color:var(--button-bckgnd-color);	
+	padding:0 1.25rem;
+	height: 2.5rem;
+	line-height: inherit;
+	text-align: center;
+	transition: all 150ms ease-in-out;
+	white-space: nowrap;	
+	overflow: visible;
+	font: inherit;
+	text-transform: none;
+	text-decoration:none;
+	color:#FFF;
+    border: 1px solid transparent;
+  }
+.pw-content .ui-button {
+    margin-left: 0;
+    margin-right: .5rem;
+}
+
+
+.ui-button.ui-state-hover,.ui-button:hover,.ui-button:focus,
 .InputfieldFileUpload .InputMask.ui-button:hover, .InputfieldFileUpload .InputMask.ui-button:focus,
 .InputfieldImageUpload .InputMask.ui-button:hover, .InputfieldImageUpload .InputMask.ui-button:focus {
 	outline:none;
 	background-color: var(--button-bckgnd-hover);
 	box-shadow:0 0 0 1px rgba(255,255,255,.5), 0 0 var(--admin-input-padding) var(--button-bckgnd-color);
 }
-#pw-content-body button:active {background-color:var(--button-bckgnd-active);}
+
+.ui-button:active {background-color:var(--button-bckgnd-active);}  
+#pw-content-body #export_button, #pw-content-body #import_button {float:right;} 
+#pw-content-body #import_button {margin-right:0;} 
+
+a.InputfieldButtonLink {display:block;float:left;margin-right:.75rem;text-decoration:none;}  
+p.detail.last-refresh-info {display:block;line-height:2.5rem;}
+
+.ui-corner-all,.ui-corner-bottom,.ui-corner-br,.ui-corner-right{border-bottom-right-radius: var(--admin-button-radius);}
+.ui-corner-all,.ui-corner-bl,.ui-corner-bottom,.ui-corner-left{border-bottom-left-radius: var(--admin-button-radius);}
+.ui-corner-all, .ui-corner-right, .ui-corner-top, .ui-corner-tr {border-top-right-radius: var(--admin-button-radius);}
+.ui-corner-all, .ui-corner-left, .ui-corner-tl, .ui-corner-top {border-top-left-radius: var(--admin-button-radius);}
+
 
 /*#pw-content-body button:focus {outline:none;border-color:var(--button-bckgnd-hover);}*/
 
@@ -1459,7 +1482,10 @@ a#tools-toggle.pw-dropdown-toggle {padding:0;}
 
 
 .uk-pagination>.uk-active>*, .uk-pagination>.uk-active>* a {background:#777;border-color:#777;}
-.pw-content .lister_headline, #content #ProcessListerResults .lister_headline, h2#ProcessLogHeadline {margin-top:.25em!important;}
+
+#pw-content-body #ProcessListerResults .lister_headline, 
+#pw-content-body h2#ProcessLogHeadline {float:none;margin-top:.5em;}
+
 .pw-content ul.bookmarks {list-style:none;line-height:1.5;padding:0;font-size:1.5rem;}
 .pw-content ul.bookmarks li {padding-bottom:.25em;}
 
@@ -1934,7 +1960,7 @@ border-radius: .5rem;
 
 #pw-content-body li#wrap_submit_save {
     position: fixed;
-    bottom: 1.65rem;
+    bottom: 3.65rem;
     right: 0;
     z-index: 2;
 }
