@@ -125,6 +125,9 @@ $footer_color    = $tweaker->footer_color;
 $valid_color     = $tweaker->valid_color   ? $tweaker->valid_color   : '#03a403';
 $warning_color   = $tweaker->warning_color ? $tweaker->warning_color : '#fb9c2e';
 
+$primary_color   = $tweaker->primary_color;
+$secondary_color = $tweaker->secondary_color;
+$highlight_color = $tweaker->highlight_color;
 
 ?>
 :root {
@@ -186,6 +189,9 @@ $warning_color   = $tweaker->warning_color ? $tweaker->warning_color : '#fb9c2e'
   --admin-input-bckg       :<?php echo $input_bckgnd     ? $input_bckgnd                                  : 'var(--admin-auto-opacity-05)'                       ; ?>;
   --admin-input-bckg_focus :<?php echo $input_bckg_focus ? $input_bckg_focus                              : 'var(--admin-auto-opacity-03)'                       ; ?>;
   --admin-input-color      :<?php echo $input_color      ? $input_color                                   : 'var(--admin-auto-opacity-90)'                       ; ?>;
+  --admin-primary-color    :<?php echo $primary_color    ? $primary_color                                 : 'var(--admin-auto-opacity-15)'                       ; ?>;
+  --admin-secondary-color  :<?php echo $secondary_color  ? secondary_color                                : 'var(--admin-auto-opacity-08)'                       ; ?>; 
+  --admin-highlight-color  :<?php echo $highlight_color  ? highlight_color                                : 'var(--admin-auto-opacity-30)'                       ; ?>; 
   --button-bckgnd-color    :<?php echo $button_bckgnd    ? $button_bckgnd                                 : '#228B22'                                            ; ?>;
   --button-opacity-75      :<?php echo $button_bckgnd    ? hexRGBA($button_bckgnd,.75)                    : hexRGBA('#228B22',.75)                               ; ?>;
   --button-opacity-3       :<?php echo $button_bckgnd    ? hexRGBA($button_bckgnd,.3)                     : hexRGBA('#228B22',.3)                                ; ?>;
@@ -265,4 +271,4 @@ url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1
 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolygon points='0,13.86 16,13.86 8,0' style='fill:%23<?php echo ltrim($valid_color, '#');?>;'/%3E%3C/svg%3E");
 }
 
-<?php include './AdminThemeTweakerFramework.css'; ?>
+<?php include $config->paths->siteModules.'AdminThemeTweaker/AdminThemeTweakerFramework.css'; ?>
