@@ -64,7 +64,7 @@ div.ProcessPageLister,
 .ProcessLogger h2 .fa {position:relative;opacity:0.5;font-size:1em;}
 
 #pw-content-body .Inputfield {
-   	margin-top: var(--admin-input-margin);border: solid 1px var(--admin-auto-opacity-20);overflow:hidden;/* test to see how it goes */outline:none;box-sizing:border-box;
+   	margin-top: var(--admin-input-margin);border: solid 1px var(--admin-auto-opacity-20);overflow:visible;outline:none;box-sizing:border-box;
 }
 #pw-content-body .Inputfield#basics{margin-top:0;border:0;}
 #pw-content-body .InputfieldCheckbox:not(.InputfieldRepeaterDelete){display:flex;align-items:center;}
@@ -2071,3 +2071,20 @@ input[type=range]::-moz-range-thumb:active     {filter:brightness(1.15);}
    border:1px solid var(--admin-auto-opacity-20);background:var(--admin-auto-opacity-20);color:var(--admin-auto-color);
 }
 /* --- */
+input.colorpicker[placeholder]{position:relative;}
+input.colorpicker[placeholder]:after{
+    content: attr(placeholder);
+    color: var(--admin-auto-color);    
+	background-color: var(--content-bckgnd);
+    background-image: linear-gradient(var(--admin-auto-opacity-08), var(--admin-auto-opacity-15));
+    font-size: .88em;
+    position: absolute;
+    padding: .5rem .75rem;
+    left: 0;
+    opacity: 0;
+    border-radius: .25rem;
+    transition: all 250ms ease;
+    box-shadow: 0 0 0.5rem rgb(0 0 0 / 50%);
+    border: 1px solid var(--admin-auto-opacity-50);
+}
+input.colorpicker[placeholder]:hover:after {opacity:1;transform:translateY(.5rem);z-index:99;}

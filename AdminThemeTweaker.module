@@ -1,5 +1,5 @@
 <?php namespace ProcessWire; 
-
+ 
 /**
  * Admin Theme Tweaker
  * @author Chris Bennett
@@ -33,7 +33,18 @@ class AdminThemeTweaker extends WireData implements Module {
 
 	public function init() {
 		$this->config->styles->add('/' . self::MODULE_NAME . '/' . self::MODULE_NAME . '.php');
-		$this->config->scripts->add('/' . self::MODULE_NAME . '/colorpickerswitch.js');	
+	}
+
+    public function ready() {
+		// Get name of the page being edited
+		$moduleName = $this->input->name; 
+	
+		// Load module specific hooks, styles, scripts 
+		if( $moduleName == 'AdminThemeTweaker') {
+			
+		    $this->config->scripts->add( $this->config->urls->siteModules . 'AdminThemeTweaker/AdminThemeTweaker.js' );
+		
+		}		
 	}
 
 	public function install() {
