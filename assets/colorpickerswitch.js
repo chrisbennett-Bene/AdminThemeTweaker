@@ -108,7 +108,7 @@ window.addEventListener('load',
         color.forEach(function (color, index) {
             if (color.type == "text" && color.value) {
                 color.type = "color";
-				event.target.setAttribute('title', 'Right click to paste hex code');
+				color.setAttribute('title', 'Right click to paste hex code');
             } 
         });
 	
