@@ -900,19 +900,16 @@ ul.pw-dropdown-menu, ul.ui-menu {margin-top:-2px;}
 #pw-content-body .InputfieldNoBorder {border:0!important;}
 #pw-content-body .InputfieldHideBorder{border-color:transparent;}
 
-.InputfieldImage .gridImages {margin-right:0;}
-.InputfieldImage:not(.InputfieldStateCollapsed)>.InputfieldContent ul.gridImages {margin-top:.25rem;}
 
+/* --- GRID IMAGES --- */
+.InputfieldImage .gridImages {margin-right:0;}
+.InputfieldImage:not(.InputfieldStateCollapsed)>.InputfieldContent ul.gridImages{margin-top:.25rem;}
 .InputfieldImage:not(.InputfieldStateCollapsed)>.InputfieldContent li.gridImage,
 .InputfieldImageEditAll .gridImage__overflow>img,
 .InputfieldFileUpload .InputMask.ui-button,
 .InputfieldImageUpload .InputMask.ui-button {
-    border-radius: var(--admin-input-radius);
-    background: var(--admin-auto-opacity-08);
-    border-color:var(--admin-auto-opacity-15);
-    box-shadow: 0 .25rem 1rem rgba(0,0,0,.15);
+    border-radius:var(--admin-input-radius);background:var(--admin-auto-opacity-08);border-color:var(--admin-auto-opacity-15);box-shadow:0 .25rem 1rem rgba(0,0,0,.15);
 }
-/* Image field trash button */
 li.gridImage label.gridImage__trash {position:absolute;z-index:9;background:none;padding:0;}
 label.gridImage__trash input[type="checkbox"]:only-of-type+span {
     justify-content:space-evenly;width:1.6rem;height:1.6rem;padding:0;margin:.15rem .75rem .15rem .15rem;
@@ -933,29 +930,19 @@ label.gridImage__trash input[type="checkbox"]:checked+span{
 #pw-content-body .gridImage--delete .InputfieldImageEdit__info,
 #pw-content-body .gridImage--delete .InputfieldImageEdit__name{display:inline-flex;align-items:center;margin:0;padding:0 .75rem 0 0;}
 #pw-content-body .InputfieldImageEdit__buttons {margin-top:.75rem;}
-
 #pw-content-body .InputfieldImageListToggle {
-    float: right;
-    margin-right: .5em;
-    position: relative;
-    padding: .25rem;
-    line-height: .8;
-    border-radius: var(--admin-input-radius);
-    border: solid 1px transparent;
+    float:right;margin-left:.5em;position:relative;padding:.25rem;line-height:.8;border-radius:var(--admin-input-radius);border:solid 1px transparent;
 }
 #pw-content-body .InputfieldImage .InputfieldHeader .InputfieldImageListToggle--active,
 #pw-content-body .InputfieldImage .InputfieldHeader .InputfieldImageListToggle--active:hover {
-    opacity: 1;
-    color: var(--admin-auto-opacity-60);
-    background:rgba(255,255,255,0.3);
-    border-color: var(--admin-auto-opacity-15);
-}
+    opacity:1;color:var(--admin-auto-opacity-90);background:rgba(255,255,255,0.3);border-color:var(--admin-auto-opacity-15);
+}/* --- ends GRID IMAGE --- */
 
 .InputfieldFieldset > .InputfieldHeader:not(.InputfieldRepeaterHeaderInit) {
     background: linear-gradient( var(--admin-auto-opacity-01)  50%, var(--admin-auto-opacity-03) )!important;
 }
 
-li:not(.InputfieldSubmit):not(.InputfieldButton).InputfieldFieldset > .InputfieldContent { height: 100%; background:var(--admin-auto-opacity-03)!important;}
+li:not(.InputfieldSubmit):not(.InputfieldButton).InputfieldFieldset > .InputfieldContent {height: 100%; background:var(--admin-auto-opacity-03)!important;}
 /* important over-rides because of unfortunate _adminTheme inline style */
 
 .Inputfields input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio]):not(.uk-form-blank),
