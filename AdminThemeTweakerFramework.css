@@ -562,7 +562,7 @@ body:not(.pw-narrow-width) #pw-content-body .PageListHasChildren:not(.PageListIt
         cursor:pointer;
 }
 /*** toggle checkbox  ***/
-#pw-content-body input[type="checkbox"],
+input[type="checkbox"]:only-of-type,
 .InputfieldMapMarkerToggle label input{
 	display: block;
     font-size: 1rem;
@@ -579,7 +579,7 @@ body:not(.pw-narrow-width) #pw-content-body .PageListHasChildren:not(.PageListIt
     margin: 2px .5em 2px 0;
 }
 
-#pw-content-body input[type="checkbox"]:after,
+input[type="checkbox"]:only-of-type:after,
 .InputfieldMapMarkerToggle input:after{
     content: "";
     position: absolute;
@@ -589,17 +589,18 @@ body:not(.pw-narrow-width) #pw-content-body .PageListHasChildren:not(.PageListIt
     width: 1.6em;
     height: 1.6em;
     border-radius: 50%;
-    transition: transform 500ms ease 20ms;
+    transition: transform 350ms ease;
     box-shadow: 0.05em 0.25em 0.5em rgb(0 0 0 / 20%);
 }
-#pw-content-body input[type="checkbox"]:checked {
-	background: var(--button-bckgnd-color);
-    box-shadow:inset 5em 0 0 var(--button-bckgnd-color);
-    border-color:rgba(255,255,255,0.5);
+input[type="checkbox"]:only-of-type:checked {
+	background-color:var(--button-bckgnd-color);
+	background-image:none;
+	box-shadow:inset 5em 0 0 var(--button-bckgnd-color);
+	border-color:rgba(255,255,255,0.5);
 }
-#pw-content-body input[type="checkbox"]:checked:after {transform:translateX(1.6em);box-shadow:0 0 1em rgb(0 0 0 / 20%);}
+input[type="checkbox"]:only-of-type:checked:after {transform:translateX(1.6em);box-shadow:0 0 1em rgb(0 0 0 / 20%);}
 
-#pw-content-body p.template-checkboxes input[type="checkbox"]/*.uk-checkbox*/ {font-size:.6rem;}
+p.template-checkboxes input[type="checkbox"]:only-of-type {font-size:.75rem;}
 /*** toggle checkbox  ***/
 
 .InputfieldCheckbox .InputfieldContent label, 
@@ -609,13 +610,13 @@ input+span{cursor:pointer;}
 input:disabled,
 input:disabled+span{cursor: not-allowed;}
 
-#pw-content-body input[type="checkbox"]+span {
+input[type="checkbox"]:only-of-type+span {
 	display:flex;
 	align-items:center;
 	padding: .25em .75em .25em .1em;
     border-radius: 1.5em;
 }
-#pw-content-body input[type="checkbox"]+span:not(.pw-no-select), 
+input[type="checkbox"]:only-of-type+span:not(.pw-no-select), 
 .InputfieldMapMarkerToggle input+strong {
 	color:#c3c3c3;
     justify-content:space-between;
@@ -623,7 +624,7 @@ input:disabled+span{cursor: not-allowed;}
 	max-width:35em;
 }
 #pw-content-body .InputfieldSelector .opval input.input-or,
-#pw-content-body input[type="checkbox"].gridImage__deletebox {display: none;} /* ensure Lister hidden check stays hidden */
+input[type="checkbox"].gridImage__deletebox {display: none;} /* ensure Lister hidden check stays hidden */
 
 .uk-checkbox         {border:solid 1px var(--admin-input-border);}
 .uk-checkbox:hover   {border-color: var(--button-bckgnd-color);}   
@@ -911,7 +912,27 @@ ul.pw-dropdown-menu, ul.ui-menu {margin-top:-2px;}
     border-color:var(--admin-auto-opacity-15);
     box-shadow: 0 .25rem 1rem rgba(0,0,0,.15);
 }
-li.gridImage .gridImage__trash {background:transparent;}
+/* Image field trash button */
+li.gridImage label.gridImage__trash {position:absolute;z-index:9;background:none;padding:0;}
+label.gridImage__trash input[type="checkbox"]:only-of-type+span {
+    justify-content:space-evenly;width:1.6rem;height:1.6rem;padding:0;margin:.15rem .75rem .15rem .15rem;
+	border-radius:var(--admin-input-radius);
+}
+label.gridImage__trash input[type="checkbox"]+span {display:inline-flex;box-shadow:0 0 0 1px rgb(255 255 255 / 40%),0 0 0.25rem rgb(0 0 0 / 30%);}
+.gridImage:hover label.gridImage__trash input[type="checkbox"]:not(:checked)+span{color:var(--admin-auto-opacity-80);background:var(--content-opacity-50);}
+.gridImage:hover label.gridImage__trash:hover input[type="checkbox"]:not(:checked)+span {color:var(--admin-auto-color);background:var(--content-opacity-80);}
+label.gridImage__trash input[type="checkbox"]:checked+span{
+	color:var(--admin-auto-color);background:var(--admin-warning);
+	box-shadow:0 0 0 0.13rem rgb(255 255 255 / 80%), 0 0 0.25rem rgb(0 0 0 / 70%);
+}
+#pw-content-body .InputfieldImageEditAll .gridImage--delete .ImageData {display:flex;align-content:center;padding-left:1rem;}
+#pw-content-body .InputfieldImageEdit__info {font-size:.75rem;}
+#pw-content-body .gridImage--delete .ImageData,
+#pw-content-body .gridImage--delete .InputfieldImageEdit__name,
+#pw-content-body .gridImage--delete .InputfieldImageEdit__info {min-height:1.8rem;}
+#pw-content-body .gridImage--delete .InputfieldImageEdit__info,
+#pw-content-body .gridImage--delete .InputfieldImageEdit__name{display:inline-flex;align-items:center;margin:0;padding:0 .75rem 0 0;}
+#pw-content-body .InputfieldImageEdit__buttons {margin-top:.75rem;}
 
 #pw-content-body .InputfieldImageListToggle {
     float: right;
@@ -1350,7 +1371,7 @@ body.ProcessPageLister #ProcessListerResults #ProcessListerTable {overflow:visib
 html.pw body.ProcessPageLister.modal {padding:0 1.4rem;}
 body.ProcessPageLister.modal #main.pw-container.uk-margin.uk-margin-large-bottom {margin:0 0 1rem 0!important;}
 
-#pw-content-body input[type="checkbox"], 
+input[type="checkbox"]:only-of-type, 
 #pw-content-body input[type=radio], 
 #pw-content-body select {
     font-size: 1em;
@@ -1372,7 +1393,7 @@ body.ProcessPageLister.modal #main.pw-container.uk-margin.uk-margin-large-bottom
 }
 
 #pw-content-body input[type="radio"]:focus,
-#pw-content-body input[type="checkbox"]:focus {box-shadow: 0 0 0 .25rem var(--button-opacity-3);}
+input[type="checkbox"]:only-of-type:focus {box-shadow: 0 0 0 .25rem var(--button-opacity-3);}
 #pw-content-body input[type="radio"]:checked {
 	border-color:     var(--button-opacity-75);
     background: url('data:image/svg+xml,%3Csvg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle fill="%23FFF" cx="8" cy="8" r="5.5" /%3E%3C/svg%3E');
@@ -1452,17 +1473,15 @@ body.ProcessPageLister.modal #main.pw-container.uk-margin.uk-margin-large-bottom
 
 
 #pw-content-body input[type="radio"]+span,
-#pw-content-body input[type="checkbox"]+span {
-    /*line-height:1;*/
-	
+input[type="checkbox"]:only-of-type+span {
 	font-weight:500;
 	color:var(--admin-auto-opacity-50);
 	transition:all ease-in-out 250ms; 
     }
-#pw-content-body input:not(:checked):focus + span,
-#pw-content-body input:not(:checked):hover + span,
-#pw-content-body input:not(:checked) + span:hover{color: var(--admin-auto-opacity-75);}
-#pw-content-body input:checked + span {color: var(--admin-auto-color);}
+input:not(:checked):only-of-type:focus + span,
+input:not(:checked:only-of-type):hover + span,
+input:not(:checked):only-of-type + span:hover{color: var(--admin-auto-opacity-75);}
+input:checked:only-of-type + span {color: var(--admin-auto-color);}
 
 #wrap_Inputfield_socialPreviewSize input[type="radio"]+span {
     font-size: .86rem;
@@ -1918,18 +1937,6 @@ input[type=range]::-moz-range-thumb:active{filter:brightness(1.15);}
 #pw-content-body .FieldtypeFloatRange.hideBackground.hideBorder + .InputfieldFloatRange__display {padding:0;margin:0;}
 #pw-content-body .FieldtypeFloatRange.displayTogether {border-right:0;border-top-right-radius:0;border-bottom-right-radius:0;}
 #pw-content-body .FieldtypeFloatRange.displayTogether + .InputfieldFloatRange__display{border-left:0;border-top-left-radius:0;border-bottom-left-radius:0;margin-left:0;}
-
-/*--- PUBLICHOLIDAY styles - move to module later ---*/
-.Inputfield[class*='Inputfield_publicHolidayName'],
-.Inputfield[class*='Inputfield_publicHolidayOpen'] {display:flex;align-items:center;}
-.Inputfield[class*='Inputfield_publicHolidayName'] *,
-.Inputfield[class*='Inputfield_publicHolidayOpen'] * {flex:1;min-width:max-content;}
-.Inputfield[class*='Inputfield_publicHolidayName'] .InputfieldHeader,
-.Inputfield[class*='Inputfield_publicHolidayOpen'] .InputfieldHeader,
-.Inputfield[class*='Inputfield_publicHolidayOpen'] .InputfieldContent {flex: 0 1 6rem;}
-.Inputfield[class*='Inputfield_publicHolidayName'] .InputfieldContent,
-.Inputfield[class*='Inputfield_publicHolidayOpen'] .InputfieldContent{padding:var(--admin-input-padding);}
-/* --- */
 
 .uk-input, .uk-select:not([multiple]):not([size]) {min-height:2.35rem;vertical-align:middle;display:inline-block;}
 
