@@ -914,6 +914,10 @@ ul.pw-dropdown-menu, ul.ui-menu {margin-top:-2px;}
 .InputfieldFileUpload .InputMask.ui-button,
 .InputfieldImageUpload .InputMask.ui-button {
     border-radius:var(--admin-input-radius);background:var(--admin-auto-opacity-08);border-color:var(--admin-auto-opacity-15);box-shadow:0 .25rem 1rem rgba(0,0,0,.15);
+
+}
+.InputfieldImage:not(.InputfieldStateCollapsed)>.InputfieldContent li.gridImage--delete {
+    border-color: var(--admin-auto-opacity-70);background-color: var(--admin-warning);transition: all ease 250ms;
 }
 li.gridImage label.gridImage__trash {position:absolute;z-index:9;background:none;padding:0;}
 label.gridImage__trash input[type="checkbox"]:only-of-type+span {
