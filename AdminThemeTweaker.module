@@ -14,7 +14,7 @@ class AdminThemeTweaker extends WireData implements Module {
 	
     const MODULE_NAME       = 'AdminThemeTweaker';
 	const MODULE_DIR        = '../../' . self::MODULE_NAME;
-    const VERSION           = '1.0.4';
+    const VERSION           = '1.0.5';
     const SUMMARY           = 'Easily tweak default Uikit Theme';
     const AUTHOR            = 'bene - Chris Bennett';
     const ICON              = 'wrench';
