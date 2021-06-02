@@ -118,13 +118,10 @@ elseif ( $masthead_min<50 ) {$after_border_width = '0 8px 8px 8px';}
 else                        {$after_border_width = '0 15px 15px 15px';} 
 
 $masthead_bckgnd = $tweaker->masthead_bckgnd_color;	
-$masthead_color  = $tweaker->masthead_color;
 $footer_bckgnd   = $tweaker->footer_bckgnd_color;
 $footer_color    = $tweaker->footer_color;
-
 $valid_color     = $tweaker->valid_color   ? $tweaker->valid_color   : '#03a403';
 $warning_color   = $tweaker->warning_color ? $tweaker->warning_color : '#fb9c2e';
-
 $primary_color   = $tweaker->primary_color;
 $secondary_color = $tweaker->secondary_color;
 $highlight_color = $tweaker->highlight_color;
@@ -251,21 +248,16 @@ $highlight_color = $tweaker->highlight_color;
   --admin-tab-border       :<?php echo getContrast($body_bckgnd,'tabborder')              ; ?>;
   --admin-tab-border-50    :<?php echo hexRGBA(getContrast($body_bckgnd,'tabborder'),0.5) ; ?>; 
   --admin-tab-bckgnd-muted :<?php echo hexRGBA(getContrast($body_bckgnd,'tab'),0.05)      ; ?>;
-  
-  --admin-masthead-color   :<?php echo ($masthead_color) ? $masthead_color 	: ($masthead_bckgnd) 
-										? hexRGBA(getContrast($masthead_bckgnd),0.75) 
-									     	: 'var(--admin-body-contrast-75)' ; ?>;  
-
-  --admin-footer-color     :<?php echo ($footer_color)   ? $footer_color	: ($footer_bckgnd) 
-										? hexRGBA(getContrast($footer_bckgnd),0.85)
-										: 'var(--admin-body-contrast-85)' ; ?>;
-
-  --admin-footer-muted     :<?php echo $footer_bckgnd    ? hexRGBA(getContrast($footer_bckgnd),0.66)   : 'var(--admin-body-contrast-66)' ; ?>;
-
+<?php
+$masthead_auto_color = ( $masthead_bckgnd ) ? hexRGBA(getContrast($masthead_bckgnd),0.75) : 'var(--admin-body-contrast-75)' ; 
+$footer_auto_color   = ( $footer_bckgnd   ) ? hexRGBA(getContrast($footer_bckgnd),0.85)   : 'var(--admin-body-contrast-85)' ;
+?>  
+  --admin-masthead-color   :<?php echo $masthead_auto_color ; ?>;  
+  --admin-footer-color     :<?php echo ($footer_color) ? $footer_color : $footer_auto_color ; ?>;
+  --admin-footer-muted     :<?php echo $footer_bckgnd  ? hexRGBA(getContrast($footer_bckgnd),0.66) : 'var(--admin-body-contrast-66)' ; ?>;
   --admin-valid            :<?php echo $valid_color     ; ?>; 
-  --admin-warning          :<?php echo $warning_color   ; ?>; 
-
- 
+  --admin-warning          :<?php echo $warning_color   ; ?>;
+  
 }
 <?php echo (!$shadows) ? '#pw-content-body * {box-shadow: none!important;}' : ''  ; ?>
 .compare.minus:before{content: 
