@@ -195,7 +195,7 @@ $highlight_color = $tweaker->highlight_color;
   --button-bckgnd-color    :<?php echo $button_bckgnd    ? $button_bckgnd                                 : '#228B22'                                            ; ?>;
   --button-opacity-75      :<?php echo $button_bckgnd    ? hexRGBA($button_bckgnd,.75)                    : hexRGBA('#228B22',.75)                               ; ?>;
   --button-opacity-3       :<?php echo $button_bckgnd    ? hexRGBA($button_bckgnd,.3)                     : hexRGBA('#228B22',.3)                                ; ?>;
-  --button-opacity-10      :<?php echo $button_bckgnd    ? hexRGBA($button_bckgnd,.10)                    : hexRGBA('#228B22',.10)                                ; ?>;
+  --button-opacity-10      :<?php echo $button_bckgnd    ? hexRGBA($button_bckgnd,.10)                    : hexRGBA('#228B22',.10)                               ; ?>;
   --button-bckgnd-hover    :<?php echo $button_hover     ? $button_hover                                  : '#176117'                                            ; ?>;
   --button-bckgnd-active   :<?php echo $button_active    ? $button_active                                 : '#64ad64'                                            ; ?>; 
   --heading-color          :<?php echo $heading_color    ? $heading_color                                 : getContrast($content_bckgnd, 'heading')              ; ?>;  
@@ -252,10 +252,14 @@ $highlight_color = $tweaker->highlight_color;
   --admin-tab-border-50    :<?php echo hexRGBA(getContrast($body_bckgnd,'tabborder'),0.5) ; ?>; 
   --admin-tab-bckgnd-muted :<?php echo hexRGBA(getContrast($body_bckgnd,'tab'),0.05)      ; ?>;
   
-  --admin-masthead-color   :<?php echo $masthead_color   ? $masthead_color : $masthead_bckgnd 
-                                                         ? hexRGBA(getContrast($masthead_bckgnd),0.75) : 'var(--admin-body-contrast-75)' ; ?>;    
-  --admin-footer-color     :<?php echo $footer_color     ? $footer_color   : $footer_bckgnd
-                                                         ? hexRGBA(getContrast($footer_bckgnd),0.85)   : 'var(--admin-body-contrast-85)' ; ?>;
+  --admin-masthead-color   :<?php echo ($masthead_color) ? $masthead_color 	: ($masthead_bckgnd) 
+										? hexRGBA(getContrast($masthead_bckgnd),0.75) 
+									     	: 'var(--admin-body-contrast-75)' ; ?>;  
+
+  --admin-footer-color     :<?php echo ($footer_color)   ? $footer_color	: ($footer_bckgnd) 
+										? hexRGBA(getContrast($footer_bckgnd),0.85)
+										: 'var(--admin-body-contrast-85)' ; ?>;
+
   --admin-footer-muted     :<?php echo $footer_bckgnd    ? hexRGBA(getContrast($footer_bckgnd),0.66)   : 'var(--admin-body-contrast-66)' ; ?>;
 
   --admin-valid            :<?php echo $valid_color     ; ?>; 
