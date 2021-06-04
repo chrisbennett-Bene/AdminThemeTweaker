@@ -42,6 +42,21 @@ window.addEventListener('load',
 						}
          }
     };
+	
+    window.addEventListener('input', function (event) {
+
+        var input = event.target;
+		
+        if (input.classList.contains('autoSaveOnChange')){
+			
+            input.closest('.InputfieldContent').classList.add('saveLoading');
+		    
+			var saveSubmit   = getById('submit_save') || getById('Inputfield_submit_save_module');
+
+			saveSubmit.click();
+        }		
+    }, false);
+	
 
     // Add event listeners for colorpicker
     window.addEventListener('change', initColorpicker, false);

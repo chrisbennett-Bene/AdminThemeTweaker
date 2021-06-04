@@ -1,0 +1,14 @@
+#pw-content-head h1 {
+  display: var(--spacesaver-head-display);
+  font-size: var(--spacesaver-head-font);
+  margin-bottom: var(--spacesaver-head-margin);
+  min-height: var(--spacesaver-head-min);
+  line-height: var(--spacesaver-head-min);
+}
+#pw-content-head>ul {
+  line-height: var(--spacesaver-head-min);
+  float: var( --spacesaver-float);
+  margin: var(--spacesaver-zero);
+  padding-bottom: var(--spacesaver-zero);
+}
+#pw-content-head>ul>li {max-height: var(--spacesaver-head-min);}

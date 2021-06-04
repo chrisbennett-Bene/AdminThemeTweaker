@@ -32,36 +32,60 @@ class AdminThemeTweaker extends WireData implements Module {
 	}
 
 	public function init() {
-		$this->config->styles->add('/' . self::MODULE_NAME . '/' . self::MODULE_NAME . '.php');
+		$this->config->styles->add( $this->config->urls->siteModules.'AdminThemeTweaker/AdminThemeTweaker.css' );
 	}
 
     public function ready() {
-		// Get name of the page being edited
-		$moduleName = $this->input->name; 
-	
-		// Load module specific hooks, styles, scripts 
-		if( $moduleName == 'AdminThemeTweaker') {
-			
-		    $this->config->scripts->add( $this->config->urls->siteModules . 'AdminThemeTweaker/AdminThemeTweaker.js' );
 		
-		}		
-	}
+		$cssPath    = $this->config->paths->siteModules.'AdminThemeTweaker/AdminThemeTweaker.css';
 
-	public function install() {
-		
-		// Create path and dir outside of site folder if none already exists to allow php to access variables and generate your custom CSS
-		
-		if (!is_dir(self::MODULE_DIR)) {
-    	mkdir(self::MODULE_DIR, 0755, true);
+		$moduleName = $this->input->name;
+		if( $moduleName == 'AdminThemeTweaker') { // Load module specific hooks, styles, scripts 
+			if ($this->showThemeTweaker) {
+				function minifyCSS($css) {
+					return str_replace('; ',';',str_replace(' }','}',
+					str_replace('{ ','{',str_replace(array("\r\n","\r","\n","\t",'  ','    ','    '),"",
+					preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!','',$css)))));																																							
+			    }
+
+		        $this->config->scripts->add($this->config->urls->siteModules.'AdminThemeTweaker/AdminThemeTweaker.js');
+		    
+				include( 'Engine/CSSvariables.php' );
+
+				$cssOutput  = $cssVariables;
+				$cssOutput .= $conditionalVariables;
+				$cssOutput .= '}'; //closes :root
+				$cssOutput .= file_get_contents ( $this->config->paths->siteModules.'AdminThemeTweaker/Engine/AdminThemeTweakerFramework.css' );
+				$cssOutput .= file_get_contents ( $this->config->paths->siteModules.'AdminThemeTweaker/Engine/AdminThemeTweakerStyleTree.css' );
+				if( $this->spacesave_heading ) {
+					$cssOutput .= file_get_contents ( $this->config->paths->siteModules.'AdminThemeTweaker/Engine/AdminThemeTweakerSpaceSaver.css' );	
+				}
+				if( $this->toggleCheckbox ) {
+					$cssOutput .= file_get_contents ( $this->config->paths->siteModules.'AdminThemeTweaker/Engine/AdminThemeTweakerToggleCheckbox.css' );	
+				}
+	            if( !$this->show_shadows ) {
+				    $cssOutput .= '#pw-content-body * {box-shadow: none!important;}';
+				}
+				if( $this->styleScrollbar ) {
+					$cssOutput .= file_get_contents ( $this->config->paths->siteModules.'AdminThemeTweaker/Engine/AdminThemeTweakerStyleScrollbar.css' );
+				}
+				
+                $cssOutput .= $svgIncVariables;				
+				
+				file_put_contents ( $cssPath, minifyCSS($cssOutput) );
+				
+			}
 		}
 		
-		// If MODULE_DIR exists, copy AdminThemeTweaker.php from assets folder of module to MODULE_DIR		
-		if (is_dir(self::MODULE_DIR)) {
-   		$this->files->copy(__DIR__ . "/assets", self::MODULE_DIR);
+		if ($this->showThemeTweaker) {
+			
+			$this->config->styles->add( $this->config->urls->siteModules . 'AdminThemeTweaker/AdminThemeTweaker.css?v='.filemtime($cssPath) );
+			
 		} else {
-			$this->session->message('Folder could not be correctly created, please create manually and set permissions to 0755');
+			
+			$this->config->styles->remove( $this->config->urls->siteModules . 'AdminThemeTweaker/AdminThemeTweaker.css' );
 		}
-	
+		
 	}
 	
 	public function uninstall() {
@@ -84,4 +108,8 @@ class AdminThemeTweaker extends WireData implements Module {
 		 }
 		rrmdir(self::MODULE_DIR);
   }	
+
+  
+  
+  
 }

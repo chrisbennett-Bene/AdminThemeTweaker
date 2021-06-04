@@ -6,6 +6,8 @@ class AdminThemeTweakerConfig extends ModuleConfig {
 
 	return array(
 		'showThemeTweaker' => true,
+		'toggleCheckbox' => '',
+		'styleScrollbar' => true,
 		'spacesave_heading' => true,
 		'spacesave_tabs' => true,
 		'body_bckgnd_color' => '#555555',
@@ -98,10 +100,11 @@ $inputfields->add($wrapper);
 	$field = $this->modules->get('InputfieldCheckbox');
 	$field->name = 'showThemeTweaker';
 	$field->label = __('Show Uikit Theme Tweaker styling');
-	$field->columnWidth = 100;
-
-$inputfields->add($field);
-
+	$field->columnWidth = 30;
+    $field->attr('class', 'autoSaveOnChange');
+	
+    $inputfields->add($field);
+	
 // fieldset quick colors
 $fieldset = $this->modules->get('InputfieldFieldset');
 $fieldset->label = __('Quick Colors');
@@ -141,8 +144,25 @@ $inputfields->add($fieldset);
 // fieldset General Settings Wrapper
 $wrapper = new InputfieldWrapper();
 $wrapper->label = __('General Settings');
-$wrapper->collapsed = Inputfield::collapsedYes;
+//$wrapper->collapsed = Inputfield::collapsedYes;
 $wrapper->icon('cogs');
+
+
+	$field = $this->modules->get('InputfieldCheckbox');
+	$field->name = 'toggleCheckbox';
+	$field->label = __('Use toggles for checkboxes');
+	$field->columnWidth = 30;
+    $field->attr('class', 'autoSaveOnChange');
+	
+    $wrapper->add($field);
+	
+	$field = $this->modules->get('InputfieldCheckbox');
+	$field->name = 'styleScrollbar';
+	$field->label = __('Style scrollbar');
+	$field->columnWidth = 30;
+    $field->attr('class', 'autoSaveOnChange');
+	
+    $wrapper->add($field);
 
 $fieldset = $this->modules->get('InputfieldFieldset');
 $fieldset->label = __('Space Saving Page Titles and Tabs');
@@ -154,14 +174,14 @@ $fieldset->icon('compress');
 	$field = $this->modules->get('InputfieldCheckbox');
 	$field->name = 'spacesave_heading';
 	$field->label = __('Space-saving Page Title');
-	$field->columnWidth = 100;
+    $field->attr('class', 'autoSaveOnChange');
 	$fieldset->add($field);
 		
 	// field Space-saving Tabs
 	$field = $this->modules->get('InputfieldCheckbox');
 	$field->name = 'spacesave_tabs';
 	$field->label = __('Space-saving Tabs');
-	$field->columnWidth = 100;
+    $field->attr('class', 'autoSaveOnChange');
 	$fieldset->add($field);
 		
 $wrapper->add($fieldset);
@@ -176,14 +196,14 @@ $fieldset->icon('clone');
 	$field = $this->modules->get('InputfieldCheckbox');
 	$field->name = 'show_shadows';
 	$field->label = __('Show subtle Shadows');
-	$field->columnWidth = 100;
+    $field->attr('class', 'autoSaveOnChange');
 	$fieldset->add($field);
 		
 	// field Table striping
 	$field = $this->modules->get('InputfieldCheckbox');
 	$field->name = 'show_zebra';
 	$field->label = __('Show subtle table striping');
-	$field->columnWidth = 100;
+    $field->attr('class', 'autoSaveOnChange');
 	$fieldset->add($field);
 
 $wrapper->add($fieldset);
@@ -258,7 +278,7 @@ $inputfields->add($wrapper);
 // fieldset Fine-tuning Wrapper
 $wrapper = new InputfieldWrapper();
 $wrapper->label = __('Fine-tuning');
-$wrapper->collapsed = Inputfield::collapsedYes;
+//$wrapper->collapsed = Inputfield::collapsedYes;
 $wrapper->icon('pencil');
 
 $fieldset = $this->modules->get('InputfieldFieldset');
@@ -310,7 +330,6 @@ $fieldset->icon('paint-brush');
 	$field->class = 'colorpicker';
 	$field->maxlength = 7;
 	$field->minlength = 7;
-	$field->columnWidth = 100;
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
 		
@@ -322,7 +341,6 @@ $fieldset->icon('paint-brush');
 	$field->class = 'colorpicker';
 	$field->maxlength = 7;
 	$field->minlength = 7;
-	$field->columnWidth = 100;
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
 
@@ -345,7 +363,6 @@ $fieldset->columnWidth = 50;
 	$field->class = 'colorpicker';
 	$field->maxlength = 7;
 	$field->minlength = 7;
-	$field->columnWidth = 100;
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
 		
@@ -357,7 +374,6 @@ $fieldset->columnWidth = 50;
 	$field->maxlength = 7;
 	$field->minlength = 7;
 	$field->label = __('Button Hover');
-	$field->columnWidth = 100;
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
 		
@@ -369,7 +385,6 @@ $fieldset->columnWidth = 50;
 	$field->class = 'colorpicker';
 	$field->maxlength = 7;
 	$field->minlength = 7;
-	$field->columnWidth = 100;
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
 
@@ -392,7 +407,6 @@ $fieldset->columnWidth = 50;
 	$field->class = 'colorpicker';
 	$field->maxlength = 7;
 	$field->minlength = 7;
-	$field->columnWidth = 100;
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
 		
@@ -404,7 +418,6 @@ $fieldset->columnWidth = 50;
 	$field->class = 'colorpicker';
 	$field->maxlength = 7;
 	$field->minlength = 7;
-	$field->columnWidth = 100;
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
 	
@@ -427,7 +440,6 @@ $fieldset->columnWidth = 50;
 	$field->class = 'colorpicker';
 	$field->maxlength = 7;
 	$field->minlength = 7;
-	$field->columnWidth = 100;
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
 		
@@ -439,7 +451,6 @@ $fieldset->columnWidth = 50;
 	$field->class = 'colorpicker';
 	$field->maxlength = 7;
 	$field->minlength = 7;
-	$field->columnWidth = 100;;
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
 	
@@ -462,7 +473,6 @@ $fieldset->columnWidth = 50;
 	$field->class = 'colorpicker';
 	$field->maxlength = 7;
 	$field->minlength = 7;
-	$field->columnWidth = 100;
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
 		
@@ -474,7 +484,6 @@ $fieldset->columnWidth = 50;
 	$field->class = 'colorpicker';
 	$field->maxlength = 7;
 	$field->minlength = 7;
-	$field->columnWidth = 100;
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
 	
@@ -555,13 +564,14 @@ $inputfields->add($wrapper);
 // fieldset Page List Wrapper
 $wrapper = new InputfieldWrapper();
 $wrapper->label = __('Page List options');
-$wrapper->collapsed = Inputfield::collapsedYes;
+//$wrapper->collapsed = Inputfield::collapsedYes;
 $wrapper->icon('cogs');
 
 	// field show Page List Item Backgrounds
 	$field = $this->modules->get('InputfieldCheckbox');
 	$field->name = 'pagelist_item_showbckgnd';
 	$field->label = __('Show backgrounds for Page List Items');
+    $field->attr('class', 'autoSaveOnChange');
 	$field->columnWidth = 50;
 
 $wrapper->add($field);
@@ -570,6 +580,7 @@ $wrapper->add($field);
 	$field = $this->modules->get('InputfieldCheckbox');
 	$field->name = 'pagelist_item_showborder';
 	$field->label = __('Show borders for Page List Items');
+    $field->attr('class', 'autoSaveOnChange');
 	$field->columnWidth = 50;
 
 $wrapper->add($field);
@@ -616,7 +627,6 @@ $fieldset->icon('paint-brush');
 	$field->class = 'colorpicker';
 	$field->maxlength = 7;
 	$field->minlength = 7;
-	$field->columnWidth = 100;
 	$field->icon('cogs');
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
@@ -629,7 +639,6 @@ $fieldset->icon('paint-brush');
 	$field->class = 'colorpicker';
 	$field->maxlength = 7;
 	$field->minlength = 7;
-	$field->columnWidth = 100;
 	$field->icon('cogs');
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
@@ -642,7 +651,6 @@ $fieldset->icon('paint-brush');
 	$field->class = 'colorpicker';
 	$field->maxlength = 7;
 	$field->minlength = 7;
-	$field->columnWidth = 100;
 	$field->icon('cogs');
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
@@ -654,4 +662,5 @@ $inputfields->add($wrapper);
   }
 
 }
+
 ?>

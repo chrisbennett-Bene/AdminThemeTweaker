@@ -1,0 +1,39 @@
+input[type="checkbox"]:only-of-type,
+.InputfieldMapMarkerToggle label input{
+	display: block;
+    font-size: .85em;
+    position: relative;
+    -webkit-appearance: none;
+    outline: none;
+    width: 4em;
+    height: 2.4em;
+    border: 2px solid #D6D6D6;
+    border-radius: 3em;
+    background-color: #FFF;
+    box-shadow: inset 5em 0 0 #eee;
+    flex-shrink: 0;
+    margin: 2px .5em 2px 0;
+}
+
+input[type="checkbox"]:only-of-type:after,
+.InputfieldMapMarkerToggle input:after{
+    content: "";
+    position: absolute;
+    top: .25em;
+    left: .25em;
+    background: #FFF;
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 50%;
+    transition: transform 350ms ease;
+    box-shadow: 0.05em 0.25em 0.5em rgb(0 0 0 / 20%);
+}
+input[type="checkbox"]:only-of-type:checked {
+	background-color:var(--button-bckgnd-color);
+	background-image:none;
+	box-shadow:inset 5em 0 0 var(--button-bckgnd-color);
+	border-color:rgba(255,255,255,0.5);
+}
+input[type="checkbox"]:only-of-type:checked:after {transform:translateX(1.6em);box-shadow:0 0 1em rgb(0 0 0 / 20%);}
+
+p.template-checkboxes input[type="checkbox"]:only-of-type {font-size:.75rem;}

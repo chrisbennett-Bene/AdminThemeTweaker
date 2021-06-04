@@ -25,6 +25,9 @@ li:not(.InputfieldSubmit):not(.InputfieldButton) .InputfieldContent,
     color:var(--admin-auto-color);background:var(--content-bckgnd)!important; /* over-ride occasional inline styles and overly specific uikit :not declarations */
     background-clip:border-box;border-radius:var(--admin-content-radius);
 }
+.InputfieldFieldset {display:flex;flex-flow:column;}
+.InputfieldFieldset>label.InputfieldHeader {flex:0;}
+
 .ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text {color: var(--admin-error-txt);}
 #pw-content-body .MinimalFieldset{overflow: hidden;}
 .WireTabs a {box-shadow: 0 0 var(--admin-input-padding) rgba(0,0,0,.1);}
@@ -182,17 +185,24 @@ div.PageList.ProcessPageLister.modal {padding:0;}
 .InputfieldStateCollapsed>p {display:none;}
 
 @media (min-width: 960px) {
+	
+	li[data-colwidth] {flex: 1 1 auto;}
+	
     li[data-colwidth],
     li[data-colwidth="50%"].InputfieldColumnWidthFirst + li.InputfieldStateHidden + li[data-colwidth="50%"].InputfieldColumnWidthFirst {
-  	    /*flex-grow: 1;*/
-		flex: 1 1 auto;
         margin-left: var(--admin-input-margin) ;
     }
-	li[data-colwidth].InputfieldColumnWidthFirst.InputfieldStateHidden + li[data-colwidth].InputfieldColumnWidthLast {
-        margin-left: 0;
-        margin-right: var(--admin-input-margin);
-   }
 	
+	
+	li[data-colwidth].InputfieldColumnWidthFirst.InputfieldStateHidden + li[data-colwidth].InputfieldColumnWidthLast,
+	/*li[data-colwidth].InputfieldFieldset.InputfieldRowFirst,*/ li[data-colwidth].InputfieldFieldset.uk-first-column,
+	li[data-colwidth].InputfieldColumnWidthFirst:not(.InputfieldFieldset),
+    li[data-colwidth].InputfieldColumnWidthFirst:first-of-type
+	{
+        margin-left: 0;
+        /*margin-right: var(--admin-input-margin);*/
+   }
+
     /*li.InputfieldStateHidden+li[data-colwidth] {margin-left: 0;}*/
     
     li[data-colwidth="10%"] {width:calc(10% - var(--admin-input-margin));}
@@ -220,10 +230,7 @@ div.PageList.ProcessPageLister.modal {padding:0;}
 		                     width:calc(90% - var(--admin-input-margin));}
     li[data-colwidth="95%"] {width:calc(95% - var(--admin-input-margin));}
   
-    /*li:not(.InputfieldStateHidden) + */li[data-colwidth].InputfieldColumnWidthFirst,
-    li[data-colwidth].InputfieldColumnWidthFirst:first-of-type {
-        margin-left:0;
-    }
+
 }
 
 #pw-content-body .pw-table-responsive:empty {display:none;}
@@ -436,102 +443,7 @@ background: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 1
 #tracy-show-button, 
 #tracy-debug #hide-button {color:var(--admin-link-hover);outline:none;}
 
-/* PAGELIST */
-#pw-content-body .PageList {overflow:visible!important;}
-.PageList .PageListItem, .PageList .PageListItem.PageListItemOpen {border-bottom:0;}
-.PageListRoot > .PageList .PageList, .PageListRoot > .PageListRootHidden > .PageList, .PageListRoot > .PageListRootHidden > .PageList {margin-left:0;}
-.PageListItem{font-size:var(--admin-tree-main-size);display:flex;flex-wrap:wrap;align-items:center;transition:all 250ms ease 20ms}
-.PageList .PageList .PageListHasChildren+.PageList .PageListItem{width:100%;font-size:var(--admin-tree-sub-size);}
-.PageList .PageListItem,.PageList .PageListItem.PageListItemOpen{
-	padding:.25em .2em;border-radius:var(--admin-content-radius);margin-bottom:.25rem;background:var(--admin-tree-showbckgnd);border:solid 1px var(--admin-tree-showborder);
-}
-.PageList .PageListItem:not(.PageListItemOpen):hover{
-    background:var(--admin-tree-showhover);border:solid 1px var(--admin-showborder-hover);box-shadow:0 0 1rem rgba(0,0,0,.15);
-}
-.PageListRoot>.PageList .PageList .PageListItemOpen.PageListHasChildren,
-.PageListRoot>.PageList .PageList .PageListItem + .PageList{
-    background:var(--admin-tree-show-open);border: solid 1px var(--admin-show-open-border);  
-}
-.PageListRoot>.PageList .PageList .PageList .PageListItem.PageListItemOpen.PageListHasChildren,
-.PageListRoot>.PageList .PageList .PageList .PageListItem + .PageList{border:solid 1px var(--admin-show-sub-border);}
-#pw-content-body .PageListRoot>.PageList .PageList .PageListItemOpen.PageListHasChildren {border-bottom:0;} 
-.PageListRoot>.PageList .PageList .PageListItem + .PageList{padding:.75em 1em 1.25em 1.75em;margin:-.25rem 0 1em 0;opacity:0;}
-.PageList .PageList .PageListItem.PageListHasChildren.PageListItemOpen{border-radius:var(--admin-content-radius) var(--admin-content-radius) 0 0;}
-.PageListRoot>.PageList .PageList .PageListItem.PageListItemOpen + .PageList{border-top:0;border-radius:0 0 var(--admin-content-radius) var(--admin-content-radius);opacity:1.0;}
-/*.PageListRoot>.PageList .PageList .PageListItem.PageListItemOpen + .PageList{opacity:1.0;}*/
-.PageList .PageListActions > li, .PageList .PageListerActions > li {white-space:nowrap;}
-.PageList .PageListActions, .PageList .PageListerActions {top:0;}
-#pw-content-body .PageListActions {padding-left:.75em;font-size: .8em;}
-.pw-content .PageListActions a,
-.pw-content .PageListerActions a,
-.pw-content .PageListMoveNote a {
-  color:#fff;text-shadow:0 0 .2em rgba(0,0,0,.5);border-radius:.33em;background:var(--admin-link-opacity-3);
-  border:solid 1px var(--admin-link-opacity-2)!important; 
-  padding:.1em .4em;font-size:.9em;font-weight:500;line-height:1.6;display:inline-block;
-}
-.pw-content .PageListItem > a.PageListPage i{color:inherit;}
-.pw-content .PageListerActions a{margin-left:-1px;}
-.pw-content .PageListerActions a.PageExtras{opacity:0.6;}
-.pw-content .PageListActions  .ui-priority-secondary:hover {opacity:1;}
-.pw-content .PageListActions a:hover,
-.pw-content .PageListerActions a:hover,
-.pw-content .PageListMoveNote a:hover{color:#FFF;text-decoration:none;background:var(--admin-link-hover-body);border:solid 1px var(--admin-link-hover-body)!important;}
-#pw-content-body #PageListContainer.PageListContainerPage .PageListActionTrash {display:inline-block;}
-.PageListActionExtra.PageListActionTrash a{background:#FFD15E;border-color:#ffae42!important;}
-.PageListActionExtra.PageListActionTrash a:hover{background:#ffae42;border-color:#f58c00!important;}
-.PageList .PageListMoveNote{cursor:move;}
-.PageList .PageListActionMore a{margin-top: 0.25em;}
-.PageList .PageListSelectName{margin-right:0.5em;}
-.PageList .PageListSelectName i{margin-right:0.25em;}
-.PageListItem:last-child, 
-.PageList .PageList .PageList .PageListItem.PageListItemOpen:last-child{margin-bottom:0;}
-.PageList .PageListItem.PageListSortItem{background:var(--admin-link-opacity-2);}
-.PageList .PageListItem.PageListSortItem:hover{background:var(--admin-link-opacity-4);}
-.PageList .PageListSortItem > a.PageListPage{background-color: rgba(0,0,0,0);}
-.PageList .PageListItem > a.PageListPage{line-height:1.6;font-size:1em;font-weight:500;opacity:1.0;}
-.PageList .PageListItemOpen.PageListItemHover>a.PageListPage,
-.PageList .PageListItemOpen.PageListItemHover>a.PageListPage:hover,
-.PageList .PageListItemOpen>a.PageListPage,
-.PageList .PageListItemOpen>a.PageListPage:hover{background-color:transparent;}
-.PageList a i.fa,.PageList .PageListStatusIcon{font-size:.9em;width:1.3em;}
-.PageList a i.fa-trash-o{width:auto;}
-a.clickExtras i.fa{width:.5em;font-size:1em;line-height:1.6;text-align:center;transition:all 250ms ease 20ms;}
-a.clickExtras i.fa.fa-flip-horizontal {transform:rotate(-180deg);}
-body:not(.pw-narrow-width) #pw-content-body a.PageListPage:before {
-	content: " ";left:0;top:0;line-height:1;width:1.1em;font-size:1em;text-align:center;transition:all 250ms ease 25ms;
-}
-body:not(.pw-narrow-width) #pw-content-body a.PageListPage:before {color:var(--admin-tree-auto-op-50);}
-body:not(.pw-narrow-width) #pw-content-body a.PageListPage:hover:before {color: var(--admin-tree-auto-op-80);}
-body:not(.pw-narrow-width) #pw-content-body .PageListItemOpen:not(.PageListID1) a.PageListPage:before,
-body:not(.pw-narrow-width) #pw-content-body .PageListItemOpen:not(.PageListID1) + .PageList a.PageListPage:before {color: var(--admin-tree-auto-op-50);}
-body:not(.pw-narrow-width) #pw-content-body .PageListItemOpen:not(.PageListID1) a.PageListPage:hover:before,
-body:not(.pw-narrow-width) #pw-content-body .PageListItemOpen:not(.PageListID1) + .PageList a.PageListPage:hover:before {color:var(--admin-tree-auto-op-80);}
-body:not(.pw-narrow-width) #pw-content-body .PageListItemOpen a.PageListPage:before {transform:rotate(-90deg);}
-body:not(.pw-narrow-width) #pw-content-body .PageListHasChildren > a.PageListPage:before,
-body:not(.pw-narrow-width) #pw-content-body .PageListHasChildren:not(.PageListItemOpen) > a.PageListPage:before{content:"\f105";}
-.toggle-icon{transition: all 200ms ease 0ms;}
-.InputfieldHeader.InputfieldStateToggle i.toggle-icon{color:inherit!important;width:auto;padding:0;}
-.InputfieldHeader.InputfieldStateToggle i.toggle-icon.fa-angle-down {transform: rotate(-180deg);}
-.toggle-icon.fa-angle-right:before,
-.toggle-icon.fa-angle-down:before{content: "\f107";}
-#pw-content-body a.PageListPage i.PageListStatusIcon{color:var(--admin-tree-auto-op-50);}
-.PageList .PageListItem .PageListNumChildren:not(:empty) {
-	display:inline-flex;justify-content:center;align-items:center;font-size:.75em;margin-left:.75em;padding:0 .35em;
-    height:2.2em;min-width:2.2em;border-radius:3em;color:var(--admin-tree-auto-op-50)!important;
-    background:var(--admin-tree-auto-op-03);border:solid 1px rgba(255,255,255,.2);box-shadow:0 0 0.5rem rgba(0,0,0,.3);
-}
-.PageList .PageListItem > a.PageListPage:hover,
-.PageList .PageListItem.PageListItemHover > a.PageListPage,
-.PageList .PageListItem > a.PageListPage:hover i,
-.PageList .PageListItem.PageListItemHover > a.PageListPage i {text-decoration: none;}
-.PageList .PageListItem .PageListLoading{color:var(--admin-tree-auto-op-50);margin-top:-.07em;font-size:1.25em;top:0;}
-.PageListLoading i.fa.fa-spinner{font-size:1em;}
-.PageList .PageListStatusHidden > a.PageListPage{opacity:0.65;}
-.PageList .PageListStatusHidden > a.PageListPage:hover{opacity: 1;}
-.PageList .PageListStatusTemp:not(.PageListItemOpen) > a.PageListPage{opacity: 0.3;}
-.PageList .PageListStatusLocked > a.PageListPage, 
-.PageList .PageListStatusLocked > a .icon{color:var(--admin-tree-auto-op-50);opacity:1;}
-/* -- ends PAGELIST -- */
+
 
 #main .notes:not(:empty) {
     color: var(--admin-auto-opacity-80)!important; /* -- needs !important to over-ride preset !important -- */
@@ -561,47 +473,6 @@ body:not(.pw-narrow-width) #pw-content-body .PageListHasChildren:not(.PageListIt
         align-items:center;
         cursor:pointer;
 }
-/*** toggle checkbox  ***/
-input[type="checkbox"]:only-of-type,
-.InputfieldMapMarkerToggle label input{
-	display: block;
-    font-size: 1rem;
-    position: relative;
-    -webkit-appearance: none;
-    outline: none;
-    width: 4em;
-    height: 2.4em;
-    border: 2px solid #D6D6D6;
-    border-radius: 3em;
-    background-color: #FFF;
-    box-shadow: inset 5em 0 0 #eee;
-    flex-shrink: 0;
-    margin: 2px .5em 2px 0;
-}
-
-input[type="checkbox"]:only-of-type:after,
-.InputfieldMapMarkerToggle input:after{
-    content: "";
-    position: absolute;
-    top: .25em;
-    left: .25em;
-    background: #FFF;
-    width: 1.6em;
-    height: 1.6em;
-    border-radius: 50%;
-    transition: transform 350ms ease;
-    box-shadow: 0.05em 0.25em 0.5em rgb(0 0 0 / 20%);
-}
-input[type="checkbox"]:only-of-type:checked {
-	background-color:var(--button-bckgnd-color);
-	background-image:none;
-	box-shadow:inset 5em 0 0 var(--button-bckgnd-color);
-	border-color:rgba(255,255,255,0.5);
-}
-input[type="checkbox"]:only-of-type:checked:after {transform:translateX(1.6em);box-shadow:0 0 1em rgb(0 0 0 / 20%);}
-
-p.template-checkboxes input[type="checkbox"]:only-of-type {font-size:.75rem;}
-/*** toggle checkbox  ***/
 
 .InputfieldCheckbox .InputfieldContent label, 
 label>input[type="checkbox"]+span {display:flex;align-items:center;cursor:pointer;}
@@ -626,9 +497,10 @@ input[type="checkbox"]:only-of-type+span:not(.pw-no-select),
 #pw-content-body .InputfieldSelector .opval input.input-or,
 input[type="checkbox"].gridImage__deletebox {display: none;} /* ensure Lister hidden check stays hidden */
 
-.uk-checkbox         {border:solid 1px var(--admin-input-border);}
-.uk-checkbox:hover   {border-color: var(--button-bckgnd-color);}   
-.uk-checkbox:checked {background-color: var(--button-bckgnd-color);}
+input[type="checkbox"]         {border:solid 1px var(--admin-input-border);border-radius: calc(var(--admin-input-radius) / 2);}
+input[type="checkbox"]:hover   {border-color: var(--button-bckgnd-color);}   
+input[type="checkbox"]:checked,
+input[type="checkbox"]:checked:focus {background-color: var(--button-bckgnd-color);}
 
 label:only-of-type input[type="checkbox"]:focus-visible {
     box-shadow: 0 0 0 .2em var(--content-bckgnd), 0 0 .5em .35em var(--admin-link);
@@ -838,20 +710,6 @@ ul.pw-dropdown-menu, ul.ui-menu {margin-top:-2px;}
 	li:nth-child(3) a[data-from="prnav-page-28"] + .ui-menu {width:100vw;max-width: 51.25rem;}
 }
 
-@media (min-width: 1350px) {
-
-	.PageList .PageListItem.PageListAccessOff:not(.PageListStatusSystem) {
-		position: relative;
-		float: right;
-		clear: right;
-    	width: 43%;
-    	max-width: 37rem;
-	}
-	.PageListRoot .PageList > .PageListItem, 
-	.PageListRoot > .PageList > .PageList > .PageListItem.PageListItemOpen + .PageList {
-    	width: 55%; 
-	}
-}
 
 
 
@@ -951,7 +809,7 @@ label.gridImage__trash input[type="checkbox"]:checked+span{
     background: linear-gradient( var(--admin-auto-opacity-01)  50%, var(--admin-auto-opacity-03) )!important;
 }
 
-li:not(.InputfieldSubmit):not(.InputfieldButton).InputfieldFieldset > .InputfieldContent {height: 100%; background:var(--admin-auto-opacity-03)!important;}
+li:not(.InputfieldSubmit):not(.InputfieldButton).InputfieldFieldset > .InputfieldContent {/*height: 100%;*/ background:var(--admin-auto-opacity-03)!important;}
 /* important over-rides because of unfortunate _adminTheme inline style */
 
 .Inputfields input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio]):not(.uk-form-blank),
@@ -1195,23 +1053,7 @@ p.pw-login-links a{text-decoration:none;}
 
 #main.pw-container.uk-margin.uk-margin-large-bottom {margin:.5rem auto 0!important;}
 header#pw-content-head {overflow:visible;}
-#pw-content-head h1 {
-  color: var(--admin-current-color);
-  display: var(--spacesaver-head-display);
-  font-size: var(--spacesaver-head-font);
-  margin-bottom: var(--spacesaver-head-margin);
-  min-height: var(--spacesaver-head-min);
-  line-height: var(--spacesaver-head-min);
-
-}
-/* Breadcrumb pw over-ride */
-#pw-content-head>ul {
-  line-height: var(--spacesaver-head-min);
-  float: var( --spacesaver-float);
-  margin: var(--spacesaver-zero);
-  padding-bottom: var(--spacesaver-zero);
-}
-#pw-content-head>ul>li {max-height: var(--spacesaver-head-min);}
+#pw-content-head h1 {color: var(--admin-current-color);}
 
 #pw-content-head-buttons :not(.pw-button-dropdown-wrap) button {padding:0 .5em;min-width:200px;}
 #pw-content-head-buttons .pw-button-dropdown-wrap {display:flex;}
@@ -1367,30 +1209,36 @@ body.ProcessPageLister #ProcessListerResults #ProcessListerTable {overflow:visib
 html.pw body.ProcessPageLister.modal {padding:0 1.4rem;}
 body.ProcessPageLister.modal #main.pw-container.uk-margin.uk-margin-large-bottom {margin:0 0 1rem 0!important;}
 
-input[type="checkbox"]:only-of-type, 
-#pw-content-body input[type=radio], 
-#pw-content-body select {
+input[type="checkbox"], input[type=radio], select {
     font-size: 1em;
+	margin: 0 var(--admin-input-margin) 0 0;
 }
-#pw-content-body input[type="radio"] {
+input[type="radio"] {
     display: block;
     flex-shrink: 0;
     height: 1.25em;
     width: 1.25em;
 	padding:0;
-    margin: 0 var(--admin-input-margin) 0 0;;
     border-radius: 50%;
     border: 2px solid var(--admin-auto-opacity-30);
     transition-property: background-color,border,box-shadow;
 }
-#pw-content-body label:hover input[type="radio"],
-#pw-content-body label:focus input[type="radio"] {
+
+label:hover input[type="radio"],
+label:focus input[type="radio"] {
     border-color: var(--admin-auto-opacity-80);
 }
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+    border-color: var(--admin-auto-opacity-50);
+}
 
-#pw-content-body input[type="radio"]:focus,
-input[type="checkbox"]:only-of-type:focus {box-shadow: 0 0 0 .25rem var(--button-opacity-3);}
-#pw-content-body input[type="radio"]:checked {
+input[type="radio"]:checked:focus,
+input[type="checkbox"]:checked:focus{
+	border-color: var(--admin-auto-opacity-40);
+	box-shadow: 0 0 0 .25rem var(--button-opacity-3);
+	}
+input[type="radio"]:checked {
 	border-color:     var(--button-opacity-75);
     background: url('data:image/svg+xml,%3Csvg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle fill="%23FFF" cx="8" cy="8" r="5.5" /%3E%3C/svg%3E');
     background-repeat: no-repeat;
@@ -1766,13 +1614,7 @@ border-radius: .5rem;
 }
 body[style*="overflow: hidden;"] li#wrap_submit_save {display:none;}
 
-:root {
-	--scrollbar:var(--content-opacity-80);
-    --track: #777;
-    --thumb: #a6a6a6;
-	--thumb-active: #ccc;
-	--scrollwidth: 1.25rem;
-}
+
 
 .Inputfields .InputfieldRepeater:not(.InputfieldIsColor):not(.InputfieldNoBorder)>.InputfieldContent>.Inputfields {background: transparent;}
 
@@ -1798,34 +1640,6 @@ body[style*="overflow: hidden;"] li#wrap_submit_save {display:none;}
     background: transparent!important;
 	border:0; /* testing */
 }
-
-.PageList .PageListItem.PageListAccessOff {
-  background: rgba(0,0,0,.06);
-}
-.PageListItem.PageListStatusLocked:not(.PageListTemplate_admin) {
-  background: rgba(0,0,0,.18);
-}
-
-.PageList .PageListAccessOff:first-of-type:before {
-    content: 'Settings';
-    position: absolute;
-    top: -2.25rem;
-    font-size: 1.75em;
-    opacity: .5;
-}
-
-html{scrollbar-width:auto;scrollbar-color:var(--thumb) var(--track);}
-::-webkit-scrollbar{background:var(--scrollbar);width:var(--scrollwidth);}
-::-webkit-scrollbar-track{background:var(--track);border-radius:var(--scrollwidth);}
-::-webkit-scrollbar-thumb{background-color:var(--thumb);border-radius:var(--scrollwidth);border:calc(var(--scrollwidth) / 5) solid var(--track);}
-::-webkit-scrollbar-thumb:hover,
-::-webkit-scrollbar-thumb:active{background-color:var(--thumb-active);}
-::-webkit-scrollbar-button:single-button{height:calc(1.1 * var(--scrollwidth));}
-::-webkit-scrollbar-button:vertical{background:no-repeat center;}
-::-webkit-scrollbar-button:single-button:vertical:decrement{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-7.5 -7.5 30 30'%3E%3Cpolygon points='0,15 15,15 7.5,2' style='fill:%23a6a6a6;'/%3E%3C/svg%3E");}
-::-webkit-scrollbar-button:single-button:vertical:decrement:hover{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-7.5 -7.5 30 30'%3E%3Cpolygon points='0,15 15,15 7.5,2' style='fill:%23ccc;'/%3E%3C/svg%3E");}
-::-webkit-scrollbar-button:single-button:vertical:increment{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-8 -8 32 32'%3E%3Cpolygon points='0,0 16,0 8,13.86' style='fill:%23a6a6a6;'/%3E%3C/svg%3E");}
-::-webkit-scrollbar-button:vertical:single-button:increment:hover{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-8 -8 32 32'%3E%3Cpolygon points='0,0 16,0 8,13.86' style='fill:%23ccc;'/%3E%3C/svg%3E");}	
 
 #pw-content-body .InputfieldRepeaterItem>.InputfieldHeader {display:flex;align-items:center;}
 
@@ -1972,10 +1786,33 @@ input[type=range]::-moz-range-thumb:active{filter:brightness(1.15);}
 height:2.5rem;line-height:2.1rem;}
 input.colorpicker[placeholder]{position:relative;}
 input.colorpicker[placeholder]:after{
-	position:absolute;left:0;top:calc(2rem - 100%);content:attr(placeholder);opacity:0;font-size:.88em;line-height:1.25;
-    color:var(--admin-auto-color);background-color:var(--content-bckgnd);background-image:linear-gradient(var(--admin-auto-opacity-08), var(--admin-auto-opacity-15));
+	position:absolute;
+	z-index: 1;
+	left:0;
+	top:calc(2rem - 100%);
+	content:attr(placeholder);
+	opacity:0;
+	font-size:.88em;
+	line-height:1.25;
+    color:var(--admin-auto-color);
+	background-color:var(--content-bckgnd);
+	background-image:linear-gradient(var(--admin-auto-opacity-08), var(--admin-auto-opacity-15));
 	padding:calc(2/3*var(--admin-input-padding)) var(--admin-input-padding);border:1px solid var(--admin-auto-opacity-50);border-radius:var(--admin-input-radius);
-    box-shadow: 0 0 0.5rem rgb(0 0 0 / 50%);transition:all 250ms ease-in;
+    box-shadow: 0 0 0.5rem rgb(0 0 0 / 50%);
+	transition:all 250ms ease-in 500ms;
 }
-input.colorpicker[placeholder]:hover:after {opacity:1;transform:translateY(calc(-.25rem - 100%));}
+input.colorpicker[placeholder]:hover:after {opacity:1;transform:translateY(calc(100% - 2rem));}
 :placeholder {opacity: 0.6;}
+.saveLoading {display:flex;}
+#pw-content-body  .saveLoading .InputfieldRadiosFloated {flex:1;}
+@keyframes rotate {0% {transform: rotate(0deg)} 100% {transform: rotate(360deg)}}
+.saveLoading:after {
+	display:inline-block;
+    margin-left: .75rem;
+    width: 2.5rem;
+	max-width: 2.5rem;
+    height: auto;
+    content: "";
+    background: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%23808080' d='M39.93,18.48c-0.04-0.5-0.11-0.99-0.18-1.48l-6.24-0.63c-0.31-1.14-0.75-2.23-1.31-3.23l3.89-4.98 c-0.29-0.4-0.6-0.79-0.92-1.18c-0.32-0.39-0.66-0.76-1.02-1.12c-0.36-0.36-0.74-0.7-1.12-1.02c-0.38-0.32-0.78-0.63-1.18-0.92 l-4.98,3.89c-1.01-0.57-2.09-1.01-3.23-1.31L23,0.25c-0.49-0.07-0.99-0.14-1.48-0.18C21.02,0.03,20.51,0,20,0s-1.02,0.03-1.52,0.07 c-0.5,0.04-0.99,0.11-1.48,0.18l-0.63,6.24c-1.14,0.31-2.23,0.75-3.23,1.31L8.16,3.91c-0.4,0.29-0.79,0.6-1.18,0.92 C6.59,5.16,6.22,5.5,5.86,5.86s-0.7,0.74-1.02,1.12C4.51,7.36,4.21,7.76,3.91,8.16l3.89,4.98c-0.57,1.01-1.01,2.09-1.31,3.23 L0.25,17c-0.07,0.49-0.14,0.99-0.18,1.48C0.03,18.98,0,19.49,0,20s0.03,1.02,0.07,1.52c0.04,0.5,0.11,0.99,0.18,1.48l6.24,0.63 c0.31,1.14,0.75,2.23,1.31,3.23l-3.89,4.98c0.29,0.4,0.6,0.79,0.92,1.18c0.32,0.38,0.66,0.76,1.02,1.12s0.74,0.7,1.12,1.02 c0.38,0.32,0.78,0.63,1.18,0.92l4.98-3.89c1.01,0.57,2.09,1.01,3.23,1.31L17,39.75c0.49,0.07,0.98,0.14,1.48,0.18S19.49,40,20,40 s1.02-0.03,1.52-0.07c0.5-0.04,0.99-0.11,1.48-0.18l0.63-6.24c1.14-0.31,2.23-0.75,3.23-1.31l4.98,3.89c0.4-0.29,0.79-0.6,1.18-0.92 c0.38-0.32,0.76-0.66,1.12-1.02c0.36-0.36,0.7-0.74,1.02-1.12c0.32-0.38,0.63-0.78,0.92-1.18l-3.89-4.98 c0.57-1.01,1.01-2.09,1.31-3.23L39.75,23c0.07-0.49,0.14-0.99,0.18-1.48c0.04-0.5,0.07-1,0.07-1.52 C40,19.49,39.98,18.98,39.93,18.48z M20,26c-3.31,0-6-2.69-6-6c0-3.31,2.69-6,6-6c3.31,0,6,2.69,6,6C26,23.31,23.31,26,20,26z'/%3E%3C/svg%3E") no-repeat center center;
+	animation:rotate 2s linear infinite;
+	}
