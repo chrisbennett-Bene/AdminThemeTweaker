@@ -147,13 +147,16 @@ $labelTab01       = hexRGBA(getContrast($labelColor, 'tab'), .01);
 $labelTab03       = hexRGBA(getContrast($labelColor, 'tab'), .03);
 
 $mastheadBckgnd   = ($this->masthead_bckgnd_color   ) ? $this->masthead_bckgnd_color       : 'rgba(0,0,0,.55)';	 
-$footerBckgnd     = ($this->footer_bckgnd_color     ) ? $this->footer_bckgnd_color         : 'rgba(0,0,0,.55)';
-$footerColor      = ($this->footer_color) ? $this->footer_color                            : ($this->footer_bckgnd_color) 
-                                                                                              ? hexRGBA(getContrast($this->footer_bckgnd_color) ,0.85)
-                                                                                              : $bodyContrast85;
-$footerMuted      = ($this->footer_color) ? hexRGBA(getContrast($this->footer_color),0.66): ($this->footer_bckgnd_color) 
-                                                                                              ? hexRGBA(getContrast($this->footer_bckgnd_color) ,0.66)
-                                                                                              : $bodyContrast66;
+$footerBckgnd     = ($this->footer_bckgnd_color     ) ? $this->footer_bckgnd_color         : 'rgba(0,0,0,.55)';															  
+
+if    ($this->footer_color       ) {$footerColor = $this->footer_color;}
+elseif($this->footer_bckgnd_color) {$footerColor = hexRGBA(getContrast($this->footer_bckgnd_color) ,0.85);}
+else                               {$footerColor = $bodyContrast85;}
+
+if    ($this->footer_color       ) {$footerMuted = hexRGBA($this->footer_color, 0.66);} 
+elseif($this->footer_bckgnd_color) {$footerMuted = hexRGBA(getContrast($this->footer_bckgnd_color) ,0.66);} 
+else                               {$footerMuted = $bodyContrast66;}
+																						  
 $validColor       = ($this->valid_color               ) ? $this->valid_color                    : '#03a403';
 $warningColor     = ($this->warning_color             ) ? $this->warning_color                  : '#fb9c2e';
 $tableZebra       = ($this->show_zebra                ) ? $autoOpacity01					    : 'transparent'   ;
@@ -341,6 +344,14 @@ if ($this->spacesave_heading) {
 }
 
 $svgIncVariables = '.compare.minus:before{content: 
-url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\'%3E%3Cpolygon points=\'0,0 16,0 8,13.86\' style=\'fill:%23'     . ltrim($warningColor, '#').';\'/%3E%3C/svg%3E");}';
+url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\'%3E%3Cpolygon points=\'0,0 16,0 8,13.86\' style=\'fill:%23'     . ltrim($warningColor, '#').';\'/%3E%3C/svg%3E");
+}';
 $svgIncVariables .= '.compare.plus:before {content: 
-url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\'%3E%3Cpolygon points=\'0,13.86 16,13.86 8,0\' style=\'fill:%23' . ltrim($validColor,   '#').';\'/%3E%3C/svg%3E");}';
+url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\'%3E%3Cpolygon points=\'0,13.86 16,13.86 8,0\' style=\'fill:%23' . ltrim($validColor,   '#').';\'/%3E%3C/svg%3E");
+}';
+$svgIncVariables .= 'input[type="checkbox"]:checked, input[type="checkbox"]:checked:focus {
+	background-image:url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 -2 14 14\'%3E%3Cpath fill=\'%23'     . ltrim(getContrast($validColor), '#').'\' d=\'M11.068 0l-6.5 6.5-2-2-1.414 1.414 3.414 3.414 7.914-7.914L11.068 0z\'/%3E%3C/svg%3E");
+}';
+
+$svgIncVariables .= '.saveLoading:after {background: url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 40 40\'%3E%3Cpath fill=\'%23'. ltrim($autoColor, '#').'\' d=\'M39.93,18.48c-0.04-0.5-0.11-0.99-0.18-1.48l-6.24-0.63c-0.31-1.14-0.75-2.23-1.31-3.23l3.89-4.98 c-0.29-0.4-0.6-0.79-0.92-1.18c-0.32-0.39-0.66-0.76-1.02-1.12c-0.36-0.36-0.74-0.7-1.12-1.02c-0.38-0.32-0.78-0.63-1.18-0.92 l-4.98,3.89c-1.01-0.57-2.09-1.01-3.23-1.31L23,0.25c-0.49-0.07-0.99-0.14-1.48-0.18C21.02,0.03,20.51,0,20,0s-1.02,0.03-1.52,0.07 c-0.5,0.04-0.99,0.11-1.48,0.18l-0.63,6.24c-1.14,0.31-2.23,0.75-3.23,1.31L8.16,3.91c-0.4,0.29-0.79,0.6-1.18,0.92 C6.59,5.16,6.22,5.5,5.86,5.86s-0.7,0.74-1.02,1.12C4.51,7.36,4.21,7.76,3.91,8.16l3.89,4.98c-0.57,1.01-1.01,2.09-1.31,3.23 L0.25,17c-0.07,0.49-0.14,0.99-0.18,1.48C0.03,18.98,0,19.49,0,20s0.03,1.02,0.07,1.52c0.04,0.5,0.11,0.99,0.18,1.48l6.24,0.63 c0.31,1.14,0.75,2.23,1.31,3.23l-3.89,4.98c0.29,0.4,0.6,0.79,0.92,1.18c0.32,0.38,0.66,0.76,1.02,1.12s0.74,0.7,1.12,1.02 c0.38,0.32,0.78,0.63,1.18,0.92l4.98-3.89c1.01,0.57,2.09,1.01,3.23,1.31L17,39.75c0.49,0.07,0.98,0.14,1.48,0.18S19.49,40,20,40 s1.02-0.03,1.52-0.07c0.5-0.04,0.99-0.11,1.48-0.18l0.63-6.24c1.14-0.31,2.23-0.75,3.23-1.31l4.98,3.89c0.4-0.29,0.79-0.6,1.18-0.92 c0.38-0.32,0.76-0.66,1.12-1.02c0.36-0.36,0.7-0.74,1.02-1.12c0.32-0.38,0.63-0.78,0.92-1.18l-3.89-4.98 c0.57-1.01,1.01-2.09,1.31-3.23L39.75,23c0.07-0.49,0.14-0.99,0.18-1.48c0.04-0.5,0.07-1,0.07-1.52 C40,19.49,39.98,18.98,39.93,18.48z M20,26c-3.31,0-6-2.69-6-6c0-3.31,2.69-6,6-6c3.31,0,6,2.69,6,6C26,23.31,23.31,26,20,26z\'/%3E%3C/svg%3E") no-repeat center center;
+}';
