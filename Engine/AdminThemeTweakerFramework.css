@@ -1,12 +1,12 @@
 *,:after,:before {box-sizing:border-box;}
 
-html{height:100vh;font-size:1em;line-height:1.5;color:var(--admin-auto-color);}
+html{height:100vh;font-size:var(--admin-font-size);line-height:1.5;color:var(--admin-auto-color);}
 html,body {margin:0;padding:0;background-color: var(--admin-body-bckgnd);}
 body {height:100%;display:flex;flex-direction:column;overflow-y:scroll!important;} /* stop whole page shifting with addition of inlined css instead of a class */
 input, input+span, label[for], button {cursor:pointer;}
 input:disabled, input:disabled+span {cursor: not-allowed;}
 body.modal{overflow:auto;}
-main.pw-container, footer .pw-container, #pw-masthead .pw-container, .NotificationList .pw-container {flex:1;width:100%;box-sizing:border-box;max-width:1680px;}
+main.pw-container, footer .pw-container, #pw-masthead .pw-container, .NotificationList .pw-container {flex:1;width:100%;box-sizing:border-box;max-width:105rem;}
 
 #pw-content-body>*:not(form) {margin:0 0 1.25rem;}
 #pw-content-body>*+*:not(form) {margin-top:1.25rem;}
@@ -27,6 +27,7 @@ li:not(.InputfieldSubmit):not(.InputfieldButton) .InputfieldContent,
     color:var(--admin-auto-color);background:var(--content-bckgnd)!important; /* over-ride occasional inline styles and overly specific uikit :not declarations */
     background-clip:border-box;border-radius:var(--admin-content-radius);
 }
+.InputfieldHeader {font-size:1rem;}
 .InputfieldFieldset {display:flex;flex-flow:column;}
 .InputfieldFieldset>label.InputfieldHeader {flex:0;}
 
@@ -50,7 +51,7 @@ li:not(.InputfieldSubmit):not(.InputfieldButton) .InputfieldContent,
 #ProcessTemplateAdd,
 div.ProcessPageLister, 
 #ProcessLoginForm,
-#ProcessFieldEdit {
+#ProcessFieldEdit[action="save?id=0"] {
     color:var(--admin-auto-color);background:var(--content-bckgnd)!important;
     box-shadow:0 0 var(--admin-input-padding) rgba(0,0,0,.1);border:1px solid var(--admin-auto-opacity-30);
     border-radius:var(--admin-content-radius);margin-bottom:1em;
@@ -189,7 +190,7 @@ div.PageList.ProcessPageLister.modal {padding:0;}
 .InputfieldStateCollapsed>.Inputfields,
 .InputfieldStateCollapsed>p {display:none;}
 
-@media (min-width: 960px) {
+@media (min-width: 60rem) {
 	
 	li[data-colwidth] {flex: 1 1 auto;}
 	
@@ -426,7 +427,10 @@ background: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 1
 .uk-breadcrumb>*>:focus, .uk-breadcrumb>*>:hover {color:var(--admin-link-hover-body);border-bottom-color:var(--admin-link-hover-body);}
 .uk-breadcrumb>:last-child>* {font-weight:800;}
 .uk-breadcrumb > :nth-child(n+2):not(.uk-first-column)::before, .uk-breadcrumb:after {
-    content: "/";display:inline-block;margin:0 1rem;color:var(--admin-body-contrast-33);
+    content: "/";
+    display: inline-block;
+    margin: 0 var(--admin-input-margin);
+    color: var(--admin-body-contrast-33);
 }
 
 .uk-navbar b a:hover, 
@@ -484,6 +488,7 @@ background: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 1
 }
 input[type="checkbox"]+span:not(.detail) {
 	padding: .25em .75em .25em 0;
+    line-height:1;
 }
 input[type="checkbox"]+span:not(.pw-no-select), 
 .InputfieldMapMarkerToggle input+strong {
@@ -512,6 +517,13 @@ input[type="checkbox"]:checked:focus {
 	background-repeat: no-repeat;
     background-position: 50% 50%;
 	}
+input:first-child:disabled, 
+input:first-child:disabled+span, 
+input:first-child:disabled+span:hover {
+    cursor: not-allowed;
+    opacity: .4;
+}	
+
 label:only-of-type input[type="checkbox"]:focus-visible {
     box-shadow: 0 0 0 .2em var(--content-bckgnd), 0 0 .5em .35em var(--admin-link);
 }
@@ -819,7 +831,7 @@ label.gridImage__trash input[type="checkbox"]:checked+span{
 }/* --- ends GRID IMAGE --- */
 
 .InputfieldFieldset > .InputfieldHeader:not(.InputfieldRepeaterHeaderInit) {
-    background: linear-gradient( var(--admin-auto-opacity-01)  50%, var(--admin-auto-opacity-03) )!important;
+    background: linear-gradient( var(--admin-auto-opacity-01), var(--admin-auto-opacity-03) )!important;
 }
 
 li:not(.InputfieldSubmit):not(.InputfieldButton).InputfieldFieldset > .InputfieldContent {/*height: 100%;*/ background:var(--admin-auto-opacity-03)!important;}
@@ -1021,9 +1033,6 @@ content: '?';
     #pw-content-head-buttons.uk-visible\@s {display: block!important;}
 }
 
-@media screen and (min-width:1080px) {
-    #pw-content-head-buttons .pw-button-dropdown-wrap {min-width:210px;}
-}
 
 .ProcessLogin div#content{
     display:flex;align-items:center;justify-content:center;height:100%;
@@ -1064,12 +1073,43 @@ p.pw-login-links a{text-decoration:none;}
 .ProcessLogin a:hover{text-decoration:none;}
 .ProcessLogin #pw-content-body #ProcessLoginForm input{text-align:left;}
 
-#main.pw-container.uk-margin.uk-margin-large-bottom {margin:.5rem auto 0!important;}
-header#pw-content-head {overflow:visible;}
-#pw-content-head h1 {color: var(--admin-current-color);}
+
+/* BREADCRUMBS, TITLE AND SAVE BUTTON */
+
+#main.pw-container.uk-margin.uk-margin-large-bottom {margin:.25rem auto 0!important;}
+
+#pw-content-head {
+	display:var(--spacesaver-display);
+	margin: .25rem 0 .5rem;
+	min-height: 2.5rem;
+}
+#pw-content-head>*, .pw-button-dropdown-wrap {    
+    display: flex;
+	align-content: center;
+}
+#pw-content-head>* {
+	margin:0;
+	padding:var(--spacesaver-spacing);
+}
+#pw-content-head>ul {
+    order: 1;
+    flex-wrap: wrap;
+}
+#pw-content-head h1 {
+	color: var(--admin-current-color);
+    order: 2;
+    flex: 1;
+	font-size: var(--spacesaver-head-size);
+    line-height: 2.5rem;
+}
+#pw-content-head-buttons {order:3;}
+
+@media screen and (min-width:1080px) {
+    #pw-content-head-buttons .pw-button-dropdown-wrap {min-width:210px;}
+}
 
 #pw-content-head-buttons :not(.pw-button-dropdown-wrap) button {padding:0 .5em;min-width:200px;}
-#pw-content-head-buttons .pw-button-dropdown-wrap {display:flex;}
+
 #pw-content-head-buttons button:first-child {flex-grow:1;margin-left:10px;}
 
 .InputfieldSubmit .InputfieldContent .ui-button, .InputfieldButton .InputfieldContent .ui-button {
@@ -1281,6 +1321,25 @@ input[type="radio"]:checked {
     float: none;
 	min-width: 5rem;
 }
+/*--- INLINE ---*/
+#pw-content-body .inline {display:flex;align-items:center;}
+#pw-content-body .inline ul {
+	margin-top:var(--admin-input-margin);
+	margin-bottom:var(--admin-input-margin);
+}
+#pw-content-body .inline li{flex: 1 0 auto;}
+#pw-content-body .inline .InputfieldHeader {max-width:max-content;}
+#pw-content-body .inline .InputfieldContent {
+	width:auto;
+	flex:1;	
+	overflow:visible;
+	padding-bottom:0;
+}
+
+
+
+
+
 
 #pw-content-body .tweakerStretchy {display:flex;align-items:center;}
 #pw-content-body .tweakerStretchy ul {
@@ -1822,16 +1881,30 @@ input.colorpicker[placeholder]:hover:after {
 }
 :placeholder {opacity: 0.6;}
 .saveLoading {display:flex;}
-#pw-content-body  .saveLoading .InputfieldRadiosFloated {flex:1;}
+.saveLoading .InputfieldContent {flex:1;}
 @keyframes rotate {0% {transform: rotate(0deg)} 100% {transform: rotate(360deg)}}
 .saveLoading:after {
-	flex:1;
-	display:inline-block;
-	opacity: .3;
-    margin-left: .75em;
+	flex: 1;
+    opacity: .15;
+    margin: 0 var(--admin-input-margin) 0 0;
     width: 2.5em;
-	max-width: 10em;
-    height: auto;
+    max-width: 2.5em;
+    height: 2.5em;
     content: "";
-	animation:rotate 2s linear infinite;
+    animation: rotate 2s linear infinite;
 }
+#wrap_Inputfield_font_size .InputfieldContent {font-size: 16px;}
+#Inputfield_font_size_x-small,
+#Inputfield_font_size_x-small+span  {font-size:x-small;}
+#Inputfield_font_size_small,
+#Inputfield_font_size_small+span    {font-size:small;}
+#Inputfield_font_size_medium,
+#Inputfield_font_size_medium+span   {font-size:medium;}
+#Inputfield_font_size_large,
+#Inputfield_font_size_large+span    {font-size:large;}
+#Inputfield_font_size_x-large,
+#Inputfield_font_size_x-large+span  {font-size:x-large;}
+#Inputfield_font_size_xx-large,
+#Inputfield_font_size_xx-large+span {font-size:xx-large;}
+#Inputfield_font_size_xxx-large,
+#Inputfield_font_size_xxx-large+span{font-size:xxx-large;}

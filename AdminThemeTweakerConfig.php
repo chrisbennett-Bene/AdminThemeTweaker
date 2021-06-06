@@ -6,6 +6,7 @@ class AdminThemeTweakerConfig extends ModuleConfig {
 
 	return array(
 		'showThemeTweaker' => true,
+        'font_size' => 'medium',     
 		'toggleCheckbox' => '',
 		'styleScrollbar' => true,
 		'spacesave_heading' => true,
@@ -96,114 +97,128 @@ $wrapper->add($field);
 $wrapper->add($field);
 $inputfields->add($wrapper);
 
-	// field show Theme Tweaker Styling
-	$field = $this->modules->get('InputfieldCheckbox');
-	$field->name = 'showThemeTweaker';
-	$field->label = __('Show Uikit Theme Tweaker styling');
-	$field->columnWidth = 30;
-    $field->attr('class', 'autoSaveOnChange');
-	
-    $inputfields->add($field);
-	
+// field show Theme Tweaker Styling
+$field                  = $this->modules->get('InputfieldCheckbox');
+$field->name            = 'showThemeTweaker';
+$field->label           = __('Show Uikit Theme Tweaker styling');
+$field->class           = 'autoSaveOnChange';
+$field ->collapsed      = Inputfield::collapsedNever;
+$field->addClass('InputfieldIsPrimary', 'wrapClass');
+    
+$inputfields->add($field);
+
+$field                  = $this->modules->get('InputfieldRadios');
+$field ->name           = 'font_size';
+$field ->label          = __('Set font size');
+$field ->icon           = 'font';
+$field ->options        = ['x-small'=>'Tiny', 'small'=>'Small' , 'medium'=>'Medium', 'large'=>'Large', 'x-large'=>'Extra large', 'xx-large'=>'Big', 'xxx-large'=>'Huge!' ];
+$field ->collapsed      = Inputfield::collapsedNever;
+$field ->optionColumns  = 1;
+$field->class           = 'autoSaveOnChange';
+$field->addClass('inline', 'wrapClass');
+$inputfields->add($field);
+
 // fieldset quick colors
-$fieldset = $this->modules->get('InputfieldFieldset');
-$fieldset->label = __('Quick Colors');
-$fieldset->showIf = 'showThemeTweaker=1';
-$fieldset->class = 'pickers';
-$fieldset->description = 'Use Hex codes such as #555555 or #555';
+$fieldset               = $this->modules->get('InputfieldFieldset');
+$fieldset->label        = __('Quick Colors');
+$fieldset->class        = 'pickers';
+$fieldset->description  = __('Use 6-digit or 3-digit hex codes, either. For example, #555555 or #555');
 $fieldset->icon('paint-brush');
 		
 	// field body background color
-	$field = $this->modules->get('InputfieldText');
-	$field->name = 'body_bckgnd_color';
-	$field->label = __('Body Background Color');
-	$field->placeholder = '#rrggbb or #rgb - Right-click to copy, paste or remove hex code';
-	$field->class = 'colorpicker';
-	$field->maxlength = 7;
-	$field->minlength = 7;
+	$field              = $this->modules->get('InputfieldText');
+	$field->name        = 'body_bckgnd_color';
+	$field->label       = __('Body Background Color');
+	$field->placeholder = __('#rrggbb or #rgb - Right-click to copy, paste or remove hex code');
+	$field->class       = 'colorpicker';
+	$field->maxlength   = 7;
+	$field->minlength   = 7;
 	$field->columnWidth = 50;
-	$field->icon('cogs');
-	$field->collapsed = Inputfield::collapsedNever;
+	$field->icon        = 'cogs';
+	$field->collapsed   = Inputfield::collapsedNever;
+	
 	$fieldset->add($field);
 		
 	// field content background color
-	$field = $this->modules->get('InputfieldText');
-	$field->name = 'content_bckgnd_color';
-	$field->label = __('Content Background Color');
-	$field->placeholder = '#rrggbb or #rgb - Right-click to copy, paste or remove hex code';
-	$field->class = 'colorpicker';
-	$field->maxlength = 7;
-	$field->minlength = 7;
+	$field              = $this->modules->get('InputfieldText');
+	$field->name        = 'content_bckgnd_color';
+	$field->label       = __('Content Background Color');
+	$field->placeholder = __('#rrggbb or #rgb - Right-click to copy, paste or remove hex code');
+	$field->class       = 'colorpicker';
+	$field->maxlength   = 7;
+	$field->minlength   = 7;
 	$field->columnWidth = 50;
-	$field->icon('cogs');
-	$field->collapsed = Inputfield::collapsedNever;
+	$field->icon        = 'cogs';
+	$field->collapsed   = Inputfield::collapsedNever;
+	
 	$fieldset->add($field);
 		
 $inputfields->add($fieldset);
 
 // fieldset General Settings Wrapper
-$wrapper = new InputfieldWrapper();
-$wrapper->label = __('General Settings');
-//$wrapper->collapsed = Inputfield::collapsedYes;
-$wrapper->icon('cogs');
+$wrapper                = new InputfieldWrapper();
+$wrapper->label         = __('General Settings');
+$wrapper->icon          = 'cogs';
 
-
-	$field = $this->modules->get('InputfieldCheckbox');
-	$field->name = 'toggleCheckbox';
-	$field->label = __('Use toggles for checkboxes');
-	$field->columnWidth = 30;
-    $field->attr('class', 'autoSaveOnChange');
+	$field              = $this->modules->get('InputfieldCheckbox');
+	$field->name        = 'toggleCheckbox';
+	$field->label       = __('Use toggles for checkboxes');
+	$field->columnWidth = 50;
+	$field->class       = 'autoSaveOnChange';
 	
-    $wrapper->add($field);
+	$wrapper->add($field);
 	
 	$field = $this->modules->get('InputfieldCheckbox');
-	$field->name = 'styleScrollbar';
-	$field->label = __('Style scrollbar');
-	$field->columnWidth = 30;
-    $field->attr('class', 'autoSaveOnChange');
+	$field->name        = 'styleScrollbar';
+	$field->label       = __('Style scrollbar');
+	$field->columnWidth = 50;
+	$field->class       = 'autoSaveOnChange';
 	
-    $wrapper->add($field);
+	$wrapper->add($field);
 
-$fieldset = $this->modules->get('InputfieldFieldset');
-$fieldset->label = __('Space Saving Page Titles and Tabs');
-$fieldset->collapsed = Inputfield::collapsedNever;
-$fieldset->columnWidth = 50;
-$fieldset->icon('compress');
+$fieldset               = $this->modules->get('InputfieldFieldset');
+$fieldset->label        = __('Space Saving Page Titles and Tabs');
+$fieldset->collapsed    = Inputfield::collapsedNever;
+$fieldset->columnWidth  = 50;
+$fieldset->icon         = 'compress';
 		
 	// field Space-saving Heading
-	$field = $this->modules->get('InputfieldCheckbox');
-	$field->name = 'spacesave_heading';
-	$field->label = __('Space-saving Page Title');
-    $field->attr('class', 'autoSaveOnChange');
+	$field              = $this->modules->get('InputfieldCheckbox');
+	$field->name        = 'spacesave_heading';
+	$field->label       = __('Space-saving Page Title');
+	$field->class       = 'autoSaveOnChange';
+	
 	$fieldset->add($field);
 		
 	// field Space-saving Tabs
-	$field = $this->modules->get('InputfieldCheckbox');
-	$field->name = 'spacesave_tabs';
-	$field->label = __('Space-saving Tabs');
-    $field->attr('class', 'autoSaveOnChange');
-	$fieldset->add($field);
-		
-$wrapper->add($fieldset);
+	$field              = $this->modules->get('InputfieldCheckbox');
+	$field->name        = 'spacesave_tabs';
+	$field->label       = __('Space-saving Tabs');
+	$field->class       = 'autoSaveOnChange';
+	
+	$fieldset->add($field);	
+    $wrapper->add($fieldset);
 
-$fieldset = $this->modules->get('InputfieldFieldset');
-$fieldset->label = __('Subtle Shadows and Table striping');
-$fieldset->collapsed = Inputfield::collapsedNever;
-$fieldset->columnWidth = 50;
-$fieldset->icon('clone');
+$fieldset               = $this->modules->get('InputfieldFieldset');
+$fieldset->label        = __('Subtle Shadows and Table striping');
+$fieldset->collapsed    = Inputfield::collapsedNever;
+$fieldset->columnWidth  = 50;
+$fieldset->icon         = 'clone';
 
 	// field Shadows
-	$field = $this->modules->get('InputfieldCheckbox');
-	$field->name = 'show_shadows';
-	$field->label = __('Show subtle Shadows');
-    $field->attr('class', 'autoSaveOnChange');
+	$field              = $this->modules->get('InputfieldCheckbox');
+	$field->name        = 'show_shadows';
+	$field->label       = __('Show subtle Shadows');
+	$field->class       = 'autoSaveOnChange';
+	
 	$fieldset->add($field);
 		
 	// field Table striping
-	$field = $this->modules->get('InputfieldCheckbox');
-	$field->name = 'show_zebra';
-	$field->label = __('Show subtle table striping');
-    $field->attr('class', 'autoSaveOnChange');
+	$field              = $this->modules->get('InputfieldCheckbox');
+	$field->name        = 'show_zebra';
+	$field->label       = __('Show subtle table striping');
+	$field->class       = 'autoSaveOnChange';
+	
 	$fieldset->add($field);
 
 $wrapper->add($fieldset);
@@ -571,7 +586,7 @@ $wrapper->icon('cogs');
 	$field = $this->modules->get('InputfieldCheckbox');
 	$field->name = 'pagelist_item_showbckgnd';
 	$field->label = __('Show backgrounds for Page List Items');
-    $field->attr('class', 'autoSaveOnChange');
+	$field->class       = 'autoSaveOnChange';
 	$field->columnWidth = 50;
 
 $wrapper->add($field);
@@ -580,7 +595,7 @@ $wrapper->add($field);
 	$field = $this->modules->get('InputfieldCheckbox');
 	$field->name = 'pagelist_item_showborder';
 	$field->label = __('Show borders for Page List Items');
-    $field->attr('class', 'autoSaveOnChange');
+	$field->class       = 'autoSaveOnChange';
 	$field->columnWidth = 50;
 
 $wrapper->add($field);
@@ -654,8 +669,8 @@ $fieldset->icon('paint-brush');
 	$field->icon('cogs');
 	$field->collapsed = Inputfield::collapsedNever;
 	$fieldset->add($field);
-		
-$wrapper->add($fieldset);
+			
+	$wrapper->add($fieldset);
 $inputfields->add($wrapper);
 
     return $inputfields;

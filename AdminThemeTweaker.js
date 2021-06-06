@@ -49,7 +49,7 @@ window.addEventListener('load',
 		
         if (input.classList.contains('autoSaveOnChange')){
 			
-            input.closest('.InputfieldContent').classList.add('saveLoading');
+            input.closest('.Inputfield').classList.add('saveLoading');
 		    
 			var saveSubmit   = getById('submit_save') || getById('Inputfield_submit_save_module');
 

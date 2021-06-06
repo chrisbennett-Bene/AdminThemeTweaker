@@ -11,22 +11,15 @@
  */
 
 class AdminThemeTweaker extends WireData implements Module {
-	
-    const MODULE_NAME       = 'AdminThemeTweaker';
-	const MODULE_DIR        = '../../' . self::MODULE_NAME;
-    const VERSION           = '1.0.5';
-    const SUMMARY           = 'Easily tweak default Uikit Theme';
-    const AUTHOR            = 'bene - Chris Bennett';
-    const ICON              = 'wrench';
 
 	public static function getModuleInfo() {
 		return array(
-			'title'       => self::MODULE_NAME,
-			'summary'     => self::SUMMARY,
-			'version'     => self::VERSION,			
-            'author'      => self::AUTHOR,
+			'title'       => 'AdminThemeTweaker',
+			'summary'     => 'Easily tweak default Uikit Theme',
+			'version'     => '1.0.6',			
+            'author'      => 'bene - Chris Bennett',
 			'autoload'    => 'template=admin',
-			'icon'        => self::ICON,
+			'icon'        => 'wrench',
 			'requires'    => 'ProcessWire>=3.0.16, AdminThemeUikit',
 		);
 	}
@@ -57,9 +50,6 @@ class AdminThemeTweaker extends WireData implements Module {
 				$cssOutput .= '}'; //closes :root
 				$cssOutput .= file_get_contents ( $this->config->paths->siteModules.'AdminThemeTweaker/Engine/AdminThemeTweakerFramework.css' );
 				$cssOutput .= file_get_contents ( $this->config->paths->siteModules.'AdminThemeTweaker/Engine/AdminThemeTweakerStyleTree.css' );
-				if( $this->spacesave_heading ) {
-					$cssOutput .= file_get_contents ( $this->config->paths->siteModules.'AdminThemeTweaker/Engine/AdminThemeTweakerSpaceSaver.css' );	
-				}
 				if( $this->toggleCheckbox ) {
 					$cssOutput .= file_get_contents ( $this->config->paths->siteModules.'AdminThemeTweaker/Engine/AdminThemeTweakerToggleCheckbox.css' );	
 				}
@@ -86,30 +76,6 @@ class AdminThemeTweaker extends WireData implements Module {
 			$this->config->styles->remove( $this->config->urls->siteModules . 'AdminThemeTweaker/AdminThemeTweaker.css' );
 		}
 		
-	}
-	
-	public function uninstall() {
-		
-		// Clean up after ourselves on uninstall. If MODULE_DIR exists, find and delete contents then remove folder.
-		
-		function rrmdir($dir) {
-			if (is_dir($dir)) {
-				$objects = scandir($dir);
-				foreach ($objects as $object) {
-					if ($object != "." && $object != "..") {
-						if (filetype($dir."/".$object) == "dir") 
-							 rrmdir($dir."/".$object); 
-						else unlink   ($dir."/".$object);
-					}
-				}
-				reset($objects);
-				rmdir($dir);
-				}
-		 }
-		rrmdir(self::MODULE_DIR);
-  }	
-
-  
-  
+	} 
   
 }
